@@ -949,3 +949,115 @@ details[open] .plus::after{transform:rotate(0)}
   .sx-tabs{margin-bottom:0}
 }
 @media (min-width:1081px){.sx .sx-cards{margin-bottom:-.52rem}}
+
+/* --- Zľava + časté otázky podľa makety: stena s tieňmi, oblúk s fotkou, sklenená karta, otázky s ikonami --- */
+.dz{isolation:isolate;overflow:hidden}
+.dz-wall{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 88%;z-index:-2}
+.dz::before{content:"";position:absolute;inset:0;z-index:-1;background:color-mix(in srgb,var(--bg) 80%,transparent)}
+.dz-arch,.dz-photo,.dz-perks,.dz-stamp,.dz-hand,.dz-side,.dz-sig{display:none}
+.dz-input{position:relative;display:block}
+.dz-input .i{position:absolute;left:1.1rem;top:50%;transform:translateY(-50%);width:1.25rem;height:1.25rem;color:var(--ink-2);pointer-events:none}
+.dz .field .dz-input input{padding-left:3.1rem}
+.dz .faq{grid-template-columns:1fr;gap:1rem}
+.dz .faq details{background:color-mix(in srgb,var(--surface) 78%,transparent);border-color:var(--line);box-shadow:0 1.2rem 2.4rem -1.8rem rgba(40,25,10,.35)}
+.dz .faq summary{justify-content:flex-start;gap:1.4rem}
+.dz .faq summary h3{flex:1}
+.dz .faq .ico{flex:none;width:3.4rem;height:3.4rem;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);color:var(--cream)}
+.dz .faq .ico .i{width:1.6rem;height:1.6rem}
+.dz .faq .plus{width:2.6rem;height:2.6rem}
+.dz .faq .plus::before,.dz .faq .plus::after{left:.85rem;right:.85rem}
+.dz .faq details p{padding-left:6.2rem}
+.dz .lead-form .btn{background:linear-gradient(180deg,#647351,#55633f);letter-spacing:.2em}
+.dz-go{display:flex;align-items:center;gap:1.4rem}
+
+@media (min-width:1081px){
+  .dz{padding:0;display:block;height:var(--vh);min-height:calc(560*var(--u))}
+  .dz .dz-in{position:relative;display:block;width:min(100%,calc(1900*var(--u)));height:calc(941*var(--u));max-height:100%;margin:0 auto;top:50%;transform:translateY(-50%)}
+  .dz-arch{display:block;position:absolute;left:calc(45*var(--u));top:calc(122*var(--u));width:calc(372*var(--u));height:calc(700*var(--u));object-fit:cover;object-position:22% 60%;border-radius:calc(186*var(--u)) calc(186*var(--u)) 0 0}
+  .dz .dz-lead{position:static;margin:0;width:auto}
+  .dz .dz-card{position:absolute;left:calc(273*var(--u));top:calc(175*var(--u));width:calc(595*var(--u));height:calc(640*var(--u));display:flex;flex-direction:column;justify-content:flex-start;gap:0;padding:calc(66*var(--u)) calc(57*var(--u)) 0 calc(67*var(--u));border-radius:calc(30*var(--u));background:rgba(253,248,240,.9);-webkit-backdrop-filter:blur(.9rem);backdrop-filter:blur(.9rem);box-shadow:0 calc(40*var(--u)) calc(70*var(--u)) calc(-40*var(--u)) rgba(60,40,20,.35)}
+  .dz-card .kicker{font-size:calc(12.5*var(--u));letter-spacing:.34em}
+  .dz .dz-card .h2{font-size:calc(69*var(--u));line-height:calc(72*var(--u));margin:calc(14*var(--u)) 0 calc(24*var(--u))}
+  .dz-card .lead-copy>p:last-child{font-size:calc(17.5*var(--u));line-height:calc(26*var(--u));color:var(--ink-2)}
+  .dz-card .lead-form{margin-top:calc(24*var(--u));gap:0}
+  .dz-card .field{font-size:calc(16*var(--u));gap:calc(8*var(--u))}
+  .dz .field .dz-input input{min-height:calc(52*var(--u));font-size:calc(16.5*var(--u));border-radius:calc(11*var(--u));padding-left:calc(66*var(--u))}
+  .dz-input .i{left:calc(23*var(--u));width:calc(24*var(--u));height:calc(24*var(--u))}
+  .dz-card .check{margin-top:calc(20*var(--u));font-size:calc(14.5*var(--u));line-height:calc(22*var(--u));gap:calc(19*var(--u))}
+  .dz-card .check input{width:calc(25*var(--u));height:calc(25*var(--u))}
+  .dz-go{margin-top:calc(26*var(--u));gap:calc(22*var(--u))}
+  .dz .lead-form .btn{min-height:calc(60*var(--u));padding:0 calc(58*var(--u));font-size:calc(15.5*var(--u));gap:calc(18*var(--u))}
+  .dz-hand{display:flex;align-items:center;gap:calc(4*var(--u));margin:0;color:#7d7355;transform:rotate(-14deg)}
+  .dz-hand svg{width:calc(52*var(--u));height:calc(66*var(--u));transform:rotate(42deg)}
+  .dz-hand span{font:500 calc(21*var(--u))/1.05 var(--hand);letter-spacing:.04em}
+  .dz-card .lead-msg{font-size:calc(13*var(--u));min-height:0;margin-top:calc(6*var(--u))}
+  .dz-stamp{display:grid;place-items:center;position:absolute;right:calc(-14*var(--u));top:calc(-52*var(--u));width:calc(141*var(--u));height:calc(141*var(--u));border-radius:50%;background:rgba(250,244,234,.86);color:#6d6a52}
+  .dz-stamp>svg:first-child{position:absolute;inset:0;width:100%;height:100%}
+  .dz-stamp>svg:last-child{width:calc(46*var(--u));height:calc(56*var(--u))}
+  .dz .dz-faq{position:absolute;right:calc(54*var(--u));top:calc(196*var(--u));width:calc(692*var(--u));display:block}
+  .dz-faq .p-head{position:relative;margin:0}
+  .dz-faq .kicker{font-size:calc(12.5*var(--u));letter-spacing:.34em}
+  .dz .dz-faq .h2{font-size:calc(54*var(--u));line-height:calc(56*var(--u));margin-top:calc(22*var(--u));max-width:none;text-wrap:wrap}
+  .dz .dz-faq .h2 em{display:block}
+  .dz-side{display:block;position:absolute;left:calc(502*var(--u));top:calc(52*var(--u));width:calc(205*var(--u));padding-left:calc(28*var(--u));border-left:1px solid var(--line-2);font-size:calc(14.5*var(--u));line-height:calc(23.5*var(--u));color:var(--muted)}
+  .dz .faq{margin-top:calc(38*var(--u));gap:calc(18*var(--u))}
+  .dz .faq details{border-radius:calc(18*var(--u))}
+  .dz .faq summary{min-height:calc(88*var(--u));padding:0 calc(22*var(--u));gap:calc(28*var(--u))}
+  .dz .faq summary h3{font-size:calc(21.5*var(--u))}
+  .dz .faq .ico{width:calc(60*var(--u));height:calc(60*var(--u))}
+  .dz .faq .ico .i{width:calc(30*var(--u));height:calc(30*var(--u))}
+  .dz .faq .plus{width:calc(44*var(--u));height:calc(44*var(--u))}
+  .dz .faq .plus::before,.dz .faq .plus::after{left:calc(15*var(--u));right:calc(15*var(--u))}
+  .dz .faq details p{padding:0 calc(70*var(--u)) calc(22*var(--u)) calc(110*var(--u));font-size:calc(15*var(--u));line-height:calc(23*var(--u));max-width:none}
+  .dz-sig{display:flex;align-items:flex-end;gap:calc(22*var(--u));position:absolute;right:calc(4*var(--u));top:calc(628*var(--u));margin:0;color:var(--muted);transition:opacity .3s}
+  .dz-sig svg{width:calc(256*var(--u));height:calc(62*var(--u))}
+  .dz-sig span{font:500 calc(11.5*var(--u))/calc(20*var(--u)) var(--sans);letter-spacing:.3em;text-transform:uppercase}
+  .dz-faq:has(details[open]) .dz-sig{opacity:0}
+}
+
+.dz-card{--accent:#5f7150;--accent-d:#4e5f41;color-scheme:light}
+
+/* mobil podľa makety 1024 × 1536: jednotka --m = 1 px makety */
+@media (max-width:760px){
+  .dz{--m:min(calc(100vw/1024),calc(var(--vh)/1536))}
+  .dz::before,.dz-wall{display:none}
+  .dz .duo>*{position:relative;isolation:isolate;background:linear-gradient(color-mix(in srgb,var(--bg) 62%,transparent),color-mix(in srgb,var(--bg) 62%,transparent)),url(../img/dz-bg-m.jpg) 50% 0/cover}
+  .dz .dz-lead{align-items:center;justify-content:center;gap:calc(58*var(--m));padding-inline:0}
+  .dz .dz-card{position:relative;display:block;width:calc(933*var(--m));height:auto;padding:calc(62*var(--m)) calc(413*var(--m)) calc(72*var(--m)) calc(58*var(--m));border-radius:calc(62*var(--m));background:rgba(247,240,229,.94);box-shadow:0 0 0 calc(3*var(--m)) rgba(255,255,255,.6),0 calc(50*var(--m)) calc(80*var(--m)) calc(-46*var(--m)) rgba(60,40,20,.45);overflow:visible}
+  .dz-photo{display:block;position:absolute;top:calc(5*var(--m));right:calc(3*var(--m));width:calc(362*var(--m));height:calc(100% - 10*var(--m));object-fit:cover;object-position:50% 46%;border-radius:calc(58*var(--m))}
+  .dz-card .kicker{font-size:calc(21*var(--m));letter-spacing:.34em;line-height:1.3}
+  .dz .dz-card .h2{font-size:calc(62*var(--m));line-height:calc(70*var(--m));margin:calc(22*var(--m)) 0 calc(28*var(--m));text-wrap:wrap}
+  .dz-card .lead-copy>p:last-child{font-size:calc(27*var(--m));line-height:calc(37.5*var(--m));color:var(--ink)}
+  .dz-card .lead-form{margin-top:calc(32*var(--m));gap:0}
+  .dz-card .field>span:first-child{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .dz .field .dz-input input{min-height:calc(82*var(--m));height:calc(82*var(--m));padding:0 calc(16*var(--m)) 0 calc(90*var(--m));border-radius:calc(22*var(--m));font-size:calc(23*var(--m));background:rgba(255,255,255,.55)}
+  .dz-input .i{left:calc(30*var(--m));width:calc(32*var(--m));height:calc(32*var(--m))}
+  .dz-card .check{margin-top:calc(30*var(--m));padding-left:calc(13*var(--m));gap:calc(32*var(--m));font-size:calc(19.5*var(--m));line-height:calc(27.5*var(--m))}
+  .dz-card .check input{width:calc(30*var(--m));height:calc(30*var(--m));margin-top:calc(4*var(--m))}
+  .dz-card .check a{display:block;width:fit-content;color:var(--accent)}
+  .dz-go{display:block;margin-top:calc(38*var(--m))}
+  .dz .lead-form .btn{width:100%;min-height:calc(100*var(--m));padding:0 calc(20*var(--m));border-radius:calc(50*var(--m));font-size:calc(24*var(--m));letter-spacing:.16em;gap:calc(34*var(--m))}
+  .dz .lead-form .btn .i{width:calc(28*var(--m));height:calc(28*var(--m))}
+  .dz-card .lead-msg{min-height:0;margin-top:calc(8*var(--m));font-size:calc(18*var(--m));line-height:1.3}
+  .dz-card .lead-done{gap:calc(18*var(--m));font-size:calc(22*var(--m));line-height:1.4}
+  .dz-card .lead-code{font-size:calc(44*var(--m));padding:calc(14*var(--m)) calc(24*var(--m))}
+  .dz-card .lead-done .btn{min-height:calc(84*var(--m));padding:0 calc(30*var(--m));font-size:calc(20*var(--m))}
+  .dz-perks{display:grid;grid-template-columns:auto auto auto;justify-content:space-between;width:calc(836*var(--m));margin:0}
+  .dz-perks li{display:flex;align-items:center;gap:calc(20*var(--m));font:500 calc(19*var(--m))/calc(24*var(--m)) var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cream);white-space:nowrap}
+  .dz-perks li+li{padding-left:calc(48*var(--m));border-left:1px solid var(--line-2)}
+  .dz-perks .i{flex:none;width:calc(46*var(--m));height:calc(46*var(--m));color:var(--accent)}
+  .dz .faq summary{padding:.8rem .9rem;gap:.8rem}
+  .dz .faq summary h3{font-size:1.1rem}
+  .dz .faq .ico{width:2.5rem;height:2.5rem}
+  .dz .faq .ico .i{width:1.25rem;height:1.25rem}
+  .dz .faq .plus{width:2rem;height:2rem}
+  .dz .faq .plus::before,.dz .faq .plus::after{left:.6rem;right:.6rem}
+  .dz .faq details p{padding:0 1rem 1rem 1rem;font-size:.86rem}
+  .dz .faq{gap:.6rem}
+}
+@media (max-width:760px){
+  .dz .duo>.dz-faq{background:var(--bg)}
+  .dz .field .dz-input input{font-size:16px}
+  .dz-card .lead-copy>p:last-child{font-size:max(calc(27*var(--m)),.76rem);line-height:1.4}
+  .dz-card .check{font-size:max(calc(19.5*var(--m)),.64rem);line-height:1.42}
+}
