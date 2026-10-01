@@ -1038,9 +1038,10 @@ details[open] .plus::after{transform:rotate(0)}
 }
 /* otvorené menu: lišta nesmie mať rozmazanie pozadia, inak by sa celoobrazovkové menu (position:fixed) zavrelo do jej obrysu */
 .menu-open .hd .hd-in,.menu-open .hd.scrolled .hd-in{-webkit-backdrop-filter:none;backdrop-filter:none;background:none;border-color:transparent;box-shadow:none}
-/* mobil, O mne: fotka v pôvodnom ráme, výrez posunutý nahor a doprava k Laure */
+/* mobil, O mne: pôvodný rám, širšia verzia fotky (miestnosť dokreslená vľavo), aby sa do rámu zmestila takmer celá výška */
 @media (max-width:760px){
-  .panel-about .about-img img{object-position:64% 18%}
+  .panel-about .about-img picture{display:block;height:100%}
+  .panel-about .about-img img{object-position:50% 38%}
 }
 
 /* --- svetlá verzia: ručné doladenie --- */
