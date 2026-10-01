@@ -942,6 +942,12 @@ details[open] .plus::after{transform:rotate(0)}
 @media (min-width:1081px){
   .sx .sx-in{width:auto;max-width:none;margin:0;padding-inline:calc(113*var(--u)) calc(107*var(--u));grid-template-columns:minmax(0,1fr) minmax(0,36rem);gap:4rem}
 }
+@media (max-width:760px){
+  .sx-in{padding-bottom:7.2rem}
+  .sx-in{grid-template-rows:minmax(0,1fr) auto;align-content:stretch}
+  .sx-in>div:first-child{align-self:start;margin-top:calc(var(--vh)*.05)}
+  .sx-tabs{margin-bottom:0}
+}
 
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
