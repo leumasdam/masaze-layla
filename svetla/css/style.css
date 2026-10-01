@@ -1038,15 +1038,9 @@ details[open] .plus::after{transform:rotate(0)}
 }
 /* otvorené menu: lišta nesmie mať rozmazanie pozadia, inak by sa celoobrazovkové menu (position:fixed) zavrelo do jej obrysu */
 .menu-open .hd .hd-in,.menu-open .hd.scrolled .hd-in{-webkit-backdrop-filter:none;backdrop-filter:none;background:none;border-color:transparent;box-shadow:none}
-/* mobil, O mne: väčšia fotka (vidno viac z Laury), čísla v jednom riadku */
+/* mobil, O mne: fotka v pôvodnom ráme, výrez posunutý nahor a doprava k Laure */
 @media (max-width:760px){
-  .panel-about .about-img{flex:1 1 auto;min-height:44%}
-  .panel-about .about-img img{object-position:62% 22%}
-  .panel-about .about-copy{flex:none}
-  .panel-about .stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:.35rem}
-  .panel-about .stats li{padding:.5rem .45rem;border-radius:.8rem}
-  .panel-about .stats b{font-size:1.15rem;white-space:nowrap}
-  .panel-about .stats span{display:block;margin-top:.25rem;font-size:.6rem;line-height:1.25}
+  .panel-about .about-img img{object-position:64% 18%}
 }
 
 /* --- svetlá verzia: ručné doladenie --- */
