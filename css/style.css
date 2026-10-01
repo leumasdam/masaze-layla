@@ -1035,5 +1035,5 @@ details[open] .plus::after{transform:rotate(0)}
 }
 @media (max-width:760px){
   .dz .duo>.dz-lead{justify-content:flex-end;padding-bottom:7.4rem}
-  .dz .dz-card{background:rgba(253,248,240,.8);-webkit-backdrop-filter:blur(.7rem) saturate(120%);backdrop-filter:blur(.7rem) saturate(120%);border:1px solid rgba(255,255,255,.5)}
+  .dz .dz-card{background:rgba(253,248,240,.84);-webkit-backdrop-filter:blur(.9rem) saturate(125%);backdrop-filter:blur(.9rem) saturate(125%);border:1px solid rgba(255,255,255,.5)}
 }
