@@ -224,18 +224,37 @@
 
   const sx = document.querySelector("[data-sx-root]");
   if (sx) {
-    const tabs = [...sx.querySelectorAll(".sx-tab")], cards = [...sx.querySelectorAll(".sx-card")], bgs = [...sx.querySelectorAll(".sx-bg img")];
-    const set = i => { [tabs, cards, bgs].forEach(l => l.forEach((el, k) => el.classList.toggle("on", k === i))); tabs.forEach((t, k) => t.setAttribute("aria-pressed", k === i)); };
-    // výber procedúry v karte: dĺžky a ceny sa prekreslia podľa zvolenej procedúry
+    const tabs = [...sx.querySelectorAll(".sx-tab")], cards = [...sx.querySelectorAll(".sx-card")], bgs = [...sx.querySelectorAll(".sx-bg img")], heads = [...sx.querySelectorAll(".sx-head")];
+    const set = i => { [tabs, cards, bgs, heads].forEach(l => l.forEach((el, k) => el.classList.toggle("on", k === i))); tabs.forEach((t, k) => t.setAttribute("aria-pressed", k === i)); };
+    // karta: procedúra (výber alebo šípky) → dĺžky a ceny; na mobile sa dĺžka najprv vyberie a rezervuje sa tlačidlom
     if (data) {
       const items = {};
       data.cats.forEach(c => c.items.forEach(it => (items[it.key] = it)));
-      sx.querySelectorAll("[data-sx-proc]").forEach(sel => {
-        const box = sel.closest(".sx-card").querySelector(".sx-len");
-        sel.addEventListener("change", () => {
-          const it = items[sel.value];
-          box.innerHTML = it.opts.map(o => `<a href="${o.url}" target="_blank" rel="noopener" aria-label="Rezervovať: ${it.name}, ${o.min} min za ${o.price} €"><small>${o.min} min</small><b>${o.price} €</b></a>`).join("");
-        });
+      const small = matchMedia("(max-width:760px)");
+      cards.forEach(card => {
+        const sel = card.querySelector("[data-sx-proc]"), box = card.querySelector(".sx-len"), go = card.querySelector("[data-sx-go]");
+        const desc = card.querySelector("[data-sx-desc]"), count = card.querySelector("[data-sx-count]");
+        let it = items[sel ? sel.value : card.dataset.sxKey], cur = null;
+        const draw = () => {
+          if (!it.opts.includes(cur)) cur = it.opts.find(o => o.min === 60) || it.opts[0];
+          box.innerHTML = it.opts.map((o, i) => `<a href="${o.url}" target="_blank" rel="noopener" data-i="${i}"${o === cur ? ' class="on"' : ""} aria-label="Rezervovať: ${it.name}, ${o.min} min za ${o.price} €"><small>${o.min} min</small><b>${o.price} €</b></a>`).join("");
+          if (go) go.href = cur.url;
+          if (desc && it.desc) desc.textContent = it.desc;
+          if (count && sel) count.textContent = String(sel.selectedIndex + 1).padStart(2, "0") + " / " + String(sel.options.length).padStart(2, "0");
+        };
+        if (sel) sel.addEventListener("change", () => { it = items[sel.value]; draw(); });
+        box.addEventListener("click", e => {
+          const a = e.target.closest("a");
+          if (!a || !small.matches) return;          // na počítači vedie dlaždica rovno do rezervácie
+          e.preventDefault(); e.stopPropagation();
+          cur = it.opts[+a.dataset.i]; draw();
+        }, true);
+        card.querySelectorAll("[data-sx-step]").forEach(b => b.addEventListener("click", () => {
+          const n = sel.options.length;
+          sel.selectedIndex = (sel.selectedIndex + +b.dataset.sxStep + n) % n;
+          sel.dispatchEvent(new Event("change"));
+        }));
+        draw();
       });
     }
     tabs.forEach((t, i) => { t.addEventListener("click", () => set(i)); t.addEventListener("mouseenter", () => { if (matchMedia("(hover:hover)").matches) set(i); }); });
