@@ -938,3 +938,7 @@ details[open] .plus::after{transform:rotate(0)}
   .pc-head{display:grid}
 }
 @media (max-width:760px){.pc-note{display:none}.pc-hero{padding-bottom:17rem}}
+/* slide služieb na počítači: kategórie k ľavému okraju (pod logo), rezervačná karta k pravému (pod tlačidlo) */
+@media (min-width:1081px){
+  .sx .sx-in{width:auto;max-width:none;margin:0;padding-inline:calc(113*var(--u)) calc(107*var(--u));grid-template-columns:minmax(0,1fr) minmax(0,36rem);gap:4rem}
+}
