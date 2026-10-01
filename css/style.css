@@ -948,3 +948,4 @@ details[open] .plus::after{transform:rotate(0)}
   .sx-in>div:first-child{align-self:start;margin-top:calc(var(--vh)*.05)}
   .sx-tabs{margin-bottom:0}
 }
+@media (min-width:1081px){.sx .sx-cards{margin-bottom:-.52rem}}
