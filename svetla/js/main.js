@@ -282,10 +282,12 @@
 
   // zastávky: panely + na úzkej šírke aj polovice dvojpanelu (každá má výšku obrazovky)
   const halves = [...document.querySelectorAll(".panel-duo .duo > *")];
+  // poloha v rozložení stránky bez posunov z animácií (efekt príchodu obsahu element dočasne posúva)
+  const topOf = el => { let y = 0; for (let n = el; n; n = n.offsetParent) y += n.offsetTop; return Math.round(y); };
   let lastStop = 0;
   const stops = () => {
     const els = panels.concat(halves.filter(h => getComputedStyle(h).scrollSnapAlign.includes("start")));
-    const t = [...new Set(els.map(p => Math.round(p.getBoundingClientRect().top + scrollY)))].sort((a, b) => a - b);
+    const t = [...new Set(els.map(topOf))].sort((a, b) => a - b);
     lastStop = t[t.length - 1];
     const max = root.scrollHeight - innerHeight; if (max > lastStop + 4) t.push(max); return t;
   };
@@ -349,7 +351,7 @@
     e.preventDefault(); e.stopImmediatePropagation();
     if (b.matches(".rhome-scroll")) return go(1);
     const el = panels[[...b.parentNode.children].indexOf(b)];
-    if (el) go(stops().indexOf(Math.round(el.getBoundingClientRect().top + scrollY)));
+    if (el) go(stops().indexOf(topOf(el)));
   }, true);
 })();
 
