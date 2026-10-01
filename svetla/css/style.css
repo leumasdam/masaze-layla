@@ -1045,6 +1045,13 @@ details[open] .plus::after{transform:rotate(0)}
 }
 /* mobil: slide služieb má fotky na výšku (oddialený záber), ukotvené hore */
 @media (max-width:760px){.sx-bg img{object-position:50% 0}}
+/* spodná lišta na mobile: pevne dole vo vlastnej vrstve; objavuje sa prelínaním, nie posunom (posun pri rolovaní v niektorých prehliadačoch poskakoval) */
+@media (max-width:1080px){
+  .dock{transform:translateZ(0);-webkit-backdrop-filter:none;backdrop-filter:none;will-change:opacity;transition:opacity .3s,visibility .3s}
+  .js .dock{transform:translateZ(0);opacity:0;visibility:hidden;pointer-events:none}
+  .js.docked .dock{transform:translateZ(0);opacity:1;visibility:visible;pointer-events:auto}
+  .js.menu-open .dock{transform:translateZ(0);opacity:0;visibility:hidden;pointer-events:none}
+}
 
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
