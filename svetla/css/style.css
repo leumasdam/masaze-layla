@@ -1039,6 +1039,15 @@ details[open] .plus::after{transform:rotate(0)}
 }
 /* otvorené menu: lišta nesmie mať rozmazanie pozadia, inak by sa celoobrazovkové menu (position:fixed) zavrelo do jej obrysu */
 .menu-open .hd .hd-in,.menu-open .hd.scrolled .hd-in{-webkit-backdrop-filter:none;backdrop-filter:none;background:none;border-color:transparent;box-shadow:none}
+/* mobil: karta zľavy ako tmavšie priehľadné sklo s bielym písmom */
+@media (max-width:760px){
+  .dz .dz-card{--ink:#fff;--ink-2:#f7f2e9;--accent:#d3dfbf;--accent-d:#f7f2e9;background:rgba(46,33,21,.26);-webkit-backdrop-filter:blur(1.2rem) saturate(130%);backdrop-filter:blur(1.2rem) saturate(130%);border:1px solid rgba(255,255,255,.34);color:#f7f2e9;text-shadow:0 1px 10px rgba(30,20,10,.35)}
+  .dz .dz-card .kicker{color:#fff}
+  .dz .dz-card .field input{color:#24170f;text-shadow:none}
+  .dz .dz-card .dz-input .i{color:#5c4a3b}
+  .dz .dz-card .btn{text-shadow:none}
+  .dz .dz-card .check input{accent-color:#55633f}
+}
 
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
@@ -1077,6 +1086,4 @@ details[open] .plus::after{transform:rotate(0)}
 /* zľava + otázky: svetlá stena s tieňmi takmer bez závoja */
 .dz::before{background:color-mix(in srgb,var(--bg) 34%,transparent)}
 @media (max-width:760px){.dz .duo>.dz-lead{background:linear-gradient(color-mix(in srgb,var(--bg) 6%,transparent),color-mix(in srgb,var(--bg) 6%,transparent)),url(../img/dz-bg-m.jpg) 50% 0/cover}}
-@media (max-width:760px){.dz .dz-card{background:rgba(253,248,240,.26);-webkit-backdrop-filter:blur(1.3rem) saturate(135%);backdrop-filter:blur(1.3rem) saturate(135%)}}
 .menu-open .hd.scrolled .hd-in{background:none;box-shadow:none}
-@media (max-width:760px){.dz .dz-card{--accent:#3b4a30;color:var(--ink)}.dz .dz-card .kicker{color:var(--ink)}}
