@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://masazelayla.sk/sitemap.xml

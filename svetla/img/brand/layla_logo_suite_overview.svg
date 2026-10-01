@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+<rect width="1200" height="900" fill="#F4EFE6"/>
+<text x="30" y="40" font-family="Inter,Arial" font-size="14" fill="#11110F" letter-spacing="1.5">PRIMARY / BLACK</text>
+<image href="layla_logo_primary_black.svg" x="30" y="64" width="330" height="210" preserveAspectRatio="xMidYMid meet"/>
+<text x="420" y="40" font-family="Inter,Arial" font-size="14" fill="#11110F" letter-spacing="1.5">PRIMARY / WHITE</text>
+<image href="layla_logo_on_black.svg" x="420" y="64" width="330" height="210" preserveAspectRatio="xMidYMid meet"/>
+<text x="810" y="40" font-family="Inter,Arial" font-size="14" fill="#11110F" letter-spacing="1.5">PRIMARY / OLIVE</text>
+<image href="layla_logo_on_olive.svg" x="810" y="64" width="330" height="210" preserveAspectRatio="xMidYMid meet"/>
+<text x="30" y="320" font-family="Inter,Arial" font-size="14" fill="#11110F" letter-spacing="1.5">WORDMARK</text>
+<image href="layla_wordmark_black.svg" x="30" y="344" width="330" height="210" preserveAspectRatio="xMidYMid meet"/>
+<text x="420" y="320" font-family="Inter,Arial" font-size="14" fill="#11110F" letter-spacing="1.5">CIRCLE SEAL</text>
+<image href="layla_seal_on_cream.svg" x="420" y="344" width="330" height="210" preserveAspectRatio="xMidYMid meet"/>
+<text x="810" y="320" font-family="Inter,Arial" font-size="14" fill="#11110F" letter-spacing="1.5">MONOGRAM</text>
+<image href="layla_monogram_tile_olive.svg" x="810" y="344" width="330" height="210" preserveAspectRatio="xMidYMid meet"/>
+<text x="30" y="600" font-family="Inter,Arial" font-size="14" fill="#11110F" letter-spacing="1.5">WAVE</text>
+<image href="layla_icon_wave.svg" x="30" y="624" width="330" height="210" preserveAspectRatio="xMidYMid meet"/>
+<text x="420" y="600" font-family="Inter,Arial" font-size="14" fill="#11110F" letter-spacing="1.5">SPARK</text>
+<image href="layla_icon_spark.svg" x="420" y="624" width="330" height="210" preserveAspectRatio="xMidYMid meet"/>
+<text x="810" y="600" font-family="Inter,Arial" font-size="14" fill="#11110F" letter-spacing="1.5">ARROW</text>
+<image href="layla_icon_arrow_circle_black.svg" x="810" y="624" width="330" height="210" preserveAspectRatio="xMidYMid meet"/>
+</svg>
