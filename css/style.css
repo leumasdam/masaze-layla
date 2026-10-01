@@ -1055,9 +1055,19 @@ details[open] .plus::after{transform:rotate(0)}
   .dz .faq details p{padding:0 1rem 1rem 1rem;font-size:.86rem}
   .dz .faq{gap:.6rem}
 }
+/* mobil: písmo a šírky presne v mierke makety (--m), zvislé rozostupy podľa výšky obrazovky (--my), aby karta dýchala */
 @media (max-width:760px){
+  .dz{--m:min(calc(100vw/1024),calc(var(--vh)/1536));--my:clamp(var(--m),calc(var(--vh)/1536),calc(var(--m)*1.32))}
   .dz .duo>.dz-faq{background:var(--bg)}
-  .dz .field .dz-input input{font-size:16px}
-  .dz-card .lead-copy>p:last-child{font-size:max(calc(27*var(--m)),.76rem);line-height:1.4}
-  .dz-card .check{font-size:max(calc(19.5*var(--m)),.64rem);line-height:1.42}
+  .dz .dz-lead{gap:calc(58*var(--my))}
+  .dz .dz-card{padding-top:calc(66*var(--my));padding-bottom:calc(74*var(--my))}
+  .dz-photo{object-position:50% 50%}
+  .dz .dz-card .h2{margin:calc(26*var(--my)) 0 calc(30*var(--my))}
+  .dz-card .lead-copy>p:last-child{font-size:calc(27*var(--m));line-height:calc(37.5*var(--m))}
+  .dz-card .lead-form{margin-top:calc(40*var(--my))}
+  .dz .field .dz-input input{height:calc(82*var(--my));min-height:0;font-size:16px}
+  .dz .field .dz-input input::placeholder{font-size:calc(23*var(--m))}
+  .dz-card .check{margin-top:calc(32*var(--my));font-size:max(calc(19.5*var(--m)),9px);line-height:1.42}
+  .dz-go{margin-top:calc(42*var(--my))}
+  .dz .lead-form .btn{min-height:calc(100*var(--my));border-radius:calc(50*var(--my))}
 }
