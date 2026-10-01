@@ -951,7 +951,7 @@ details[open] .plus::after{transform:rotate(0)}
 @media (min-width:1081px){.sx .sx-cards{margin-bottom:-.52rem}}
 
 /* --- Zľava + časté otázky podľa makety: stena s tieňmi, oblúk s fotkou, sklenená karta, otázky s ikonami --- */
-.dz{isolation:isolate;overflow:hidden}
+.dz{isolation:isolate;overflow:clip}   /* clip, nie hidden: hidden by z panelu spravil vlastný rolovací kontajner a prichytávanie slidov vnútri by prestalo platiť */
 .dz-wall{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 88%;z-index:-2}
 .dz::before{content:"";position:absolute;inset:0;z-index:-1;background:color-mix(in srgb,var(--bg) 80%,transparent)}
 .dz-arch,.dz-photo,.dz-perks,.dz-stamp,.dz-hand,.dz-side,.dz-sig{display:none}
