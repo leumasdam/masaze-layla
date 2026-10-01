@@ -1043,3 +1043,5 @@ details[open] .plus::after{transform:rotate(0)}
   .panel-about .about-img picture{display:block;height:100%}
   .panel-about .about-img img{object-position:50% 38%}
 }
+/* mobil: slide služieb má fotky na výšku (oddialený záber), ukotvené hore */
+@media (max-width:760px){.sx-bg img{object-position:50% 0}}
