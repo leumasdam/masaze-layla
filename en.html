@@ -18,7 +18,7 @@
 <style>
 .en-hd{position:fixed;inset:0 0 auto 0;z-index:100;padding:calc(.9rem + env(safe-area-inset-top,0px)) var(--gut) 0}
 .en-hd .hd-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:3.9rem;padding-inline:1.5rem .6rem;border-radius:999px;background:rgba(31,22,16,.72);border:1px solid var(--line);-webkit-backdrop-filter:blur(1.2rem);backdrop-filter:blur(1.2rem)}
-.en-hd .wordmark{display:block;width:7.4rem;height:1.7rem;background:var(--cream);-webkit-mask:url(img/brand/layla_logotype.svg) center/contain no-repeat;mask:url(img/brand/layla_logotype.svg) center/contain no-repeat}
+.en-logo{display:block;width:7.4rem;height:auto}
 .en-hd .lang{font:500 .75rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cream);margin-right:auto;margin-left:1.2rem;opacity:.8}
 .en-hero{position:relative;isolation:isolate;min-height:min(92svh,52rem);display:flex;align-items:flex-end;padding:8rem var(--gut) 3.5rem;overflow:hidden}
 .en-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;z-index:-2}
@@ -50,7 +50,7 @@
 <body>
 <header class="en-hd">
   <div class="hd-in">
-    <a class="brand" href="index.html" aria-label="Masáže Layla – home"><span class="wordmark" aria-hidden="true"></span></a>
+    <a class="brand" href="index.html" aria-label="Masáže Layla – home"><img class="en-logo" src="img/brand/layla_logotype.svg" alt="" width="866" height="200"></a>
     <span class="lang">English</span>
     <a class="btn btn-sm" href="https://booqme.app/sk/rezervacia/masaze-layla" target="_blank" rel="noopener">Book now <svg class="i i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
   </div>
