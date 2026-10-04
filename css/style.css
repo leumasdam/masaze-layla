@@ -1062,3 +1062,17 @@ details[open] .plus::after{transform:rotate(0)}
 .lang a{position:absolute;left:0;right:0;top:calc(100% + .35rem);display:grid;place-items:center;height:2.4rem;border-radius:1rem;background:#fbf6ee;border:1px solid rgba(36,23,15,.18);font:600 .72rem/1 var(--sans);letter-spacing:.14em;color:#24170f;box-shadow:0 1rem 2rem -1rem rgba(0,0,0,.45)}
 .lang a:hover{background:#fff}
 @media (min-width:1081px){.lang summary{height:calc(46*var(--u));font-size:calc(13*var(--u));padding:0 calc(16*var(--u))}}
+/* kalendár Booqme: čo najviac miesta pre vložené okno (Booqme v ňom zobrazuje vlastný cookie panel, ktorý nevieme skryť) */
+.bk-dialog:has(.bk-cal){display:flex;flex-direction:column;height:min(96dvh,58rem);padding:1rem 1.2rem 1.1rem}
+.bk-dialog:has(.bk-cal)[open]{display:flex}
+.bk-dialog .bk-cal{display:flex;flex-direction:column;flex:1;min-height:0;gap:.6rem}
+.bk-dialog .bk-cal .bk-steps,.bk-dialog .bk-cal .bk-alt{display:none}
+.bk-dialog .bk-cal .bk-body{display:flex;flex-direction:column;flex:1;min-height:0;gap:.5rem}
+.bk-dialog .bk-cal .bk-back{padding-right:2.6rem}
+.bk-dialog .bk-cal .bk-frame{flex:1;height:auto;min-height:0}
+.bk-dialog .bk-cal .bk-after{margin:0;font-size:.78rem}
+@media (max-width:760px),(max-height:760px){
+  .bk-dialog:has(.bk-cal){width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;margin:0;border-radius:0;padding:.7rem .6rem calc(.7rem + env(safe-area-inset-bottom,0px))}
+  .bk-dialog .bk-cal .bk-sum{font-size:1.05rem}
+  .bk-dialog .bk-cal .bk-frame{border-radius:.7rem}
+}
