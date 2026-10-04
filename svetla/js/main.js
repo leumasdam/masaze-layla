@@ -1,4 +1,6 @@
 /* Masáže Layla v3 */
+const EN = document.documentElement.lang === "en";
+const L = (sk, en) => (EN ? en : sk);
 (() => {
   const root = document.documentElement;
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
@@ -12,7 +14,7 @@
 
   // menu na mobile
   const burger = document.querySelector(".burger");
-  const setMenu = open => { root.classList.toggle("menu-open", open); burger.setAttribute("aria-expanded", open); burger.setAttribute("aria-label", open ? "Zavrieť menu" : "Otvoriť menu"); };
+  const setMenu = open => { root.classList.toggle("menu-open", open); burger.setAttribute("aria-expanded", open); burger.setAttribute("aria-label", open ? L("Zavrieť menu", "Close menu") : L("Otvoriť menu", "Open menu")); };
   burger.addEventListener("click", () => setMenu(!root.classList.contains("menu-open")));
   $$(".nav a").forEach(a => a.addEventListener("click", () => setMenu(false)));
   addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
@@ -57,23 +59,23 @@
     const draw = () => {
       el.classList.toggle("bk-cal", !!(st.sent && embedOk));
       if (st.sent && embedOk) {
-        body.innerHTML = `<div class="bk-back"><p class="bk-sum">${esc(st.item.name)}<small>${st.opt.min} minút · ${st.opt.price} €</small></p>
-          <button type="button" class="link" data-bk-back>Zmeniť výber</button></div>
-          <iframe class="bk-frame" src="${esc(st.opt.url)}&embed=1" title="Výber dňa a času: ${esc(st.item.name)}" loading="lazy"></iframe>
-          <p class="bk-after">Kalendár sa nenačítal? <a href="${esc(st.opt.url)}" target="_blank" rel="noopener">Otvoriť rezerváciu v novom okne</a> alebo zavolajte <a href="${esc(data.phoneHref)}">${esc(data.phone)}</a>.</p>`;
+        body.innerHTML = `<div class="bk-back"><p class="bk-sum">${esc(st.item.name)}<small>${st.opt.min} ${L("minút", "min")} · ${st.opt.price} €</small></p>
+          <button type="button" class="link" data-bk-back>${L("Zmeniť výber", "Change")}</button></div>
+          <iframe class="bk-frame" src="${esc(st.opt.url)}&embed=1" title="${L("Výber dňa a času", "Choose day and time")}: ${esc(st.item.name)}" loading="lazy"></iframe>
+          <p class="bk-after">${L("Kalendár sa nenačítal?", "Calendar not loading?")} <a href="${esc(st.opt.url)}" target="_blank" rel="noopener">${L("Otvoriť rezerváciu v novom okne", "Open the booking in a new window")}</a> ${L("alebo zavolajte", "or call")} <a href="${esc(data.phoneHref)}">${esc(data.phone)}</a>.</p>`;
         steps.forEach((li, i) => { li.classList.toggle("on", i === 2); li.classList.toggle("done", i < 2); });
         return;
       }
-      let h = `<div><p class="bk-q">Čo to bude?</p><div class="pills">${pills(data.cats, st.cat, "cat", c => esc(c.name))}</div></div>`;
+      let h = `<div><p class="bk-q">${L("Čo to bude?", "What would you like?")}</p><div class="pills">${pills(data.cats, st.cat, "cat", c => esc(c.name))}</div></div>`;
       if (st.cat && st.cat.items.length > 1)
-        h += `<div><p class="bk-q">Ktorá procedúra?</p><div class="pills">${pills(st.cat.items, st.item, "item", x => esc(x.name))}</div></div>`;
+        h += `<div><p class="bk-q">${L("Ktorá procedúra?", "Which treatment?")}</p><div class="pills">${pills(st.cat.items, st.item, "item", x => esc(x.name))}</div></div>`;
       if (st.item)
-        h += `<div><p class="bk-q">Na ako dlho?</p><div class="pills">${pills(st.item.opts, st.opt, "opt", o => `${o.min} min <small>${o.price} €</small>`)}</div></div>`;
+        h += `<div><p class="bk-q">${L("Na ako dlho?", "How long?")}</p><div class="pills">${pills(st.item.opts, st.opt, "opt", o => `${o.min} min <small>${o.price} €</small>`)}</div></div>`;
       if (st.opt)
-        h += `<div class="bk-final"><p class="bk-sum">${esc(st.item.name)}<small>${st.opt.min} minút · ${st.opt.price} €</small></p>
-          <a class="btn" href="${esc(st.opt.url)}" target="_blank" rel="noopener" data-bk-go>Vybrať deň a čas ${arrow}</a></div>`;
+        h += `<div class="bk-final"><p class="bk-sum">${esc(st.item.name)}<small>${st.opt.min} ${L("minút", "min")} · ${st.opt.price} €</small></p>
+          <a class="btn" href="${esc(st.opt.url)}" target="_blank" rel="noopener" data-bk-go>${L("Vybrať deň a čas", "Choose day and time")} ${arrow}</a></div>`;
       if (st.sent)
-        h += `<p class="bk-after">Rezervácia sa otvorila v novom okne, stačí vybrať deň a čas. Nepodarilo sa? Zavolajte <a href="${esc(data.phoneHref)}">${esc(data.phone)}</a> a termín dohodneme hneď.</p>`;
+        h += `<p class="bk-after">${L("Rezervácia sa otvorila v novom okne, stačí vybrať deň a čas. Nepodarilo sa? Zavolajte", "The booking opened in a new window – just pick a day and time. Didn’t work? Call")} <a href="${esc(data.phoneHref)}">${esc(data.phone)}</a> ${L("a termín dohodneme hneď.", "and we will arrange a time right away.")}</p>`;
       body.innerHTML = h;
       const at = st.opt ? 2 : st.item ? 1 : 0;
       steps.forEach((li, i) => { li.classList.toggle("on", i === at); li.classList.toggle("done", i < at); });
@@ -151,7 +153,7 @@
   const open = settings => {
     const c = read() || { a: false, m: false };
     a.checked = !!c.a; m.checked = !!c.m; opts.hidden = !settings; box.hidden = false;
-    box.querySelector('[data-cookie="more"]').textContent = settings ? "Uložiť výber" : "Nastaviť";
+    box.querySelector('[data-cookie="more"]').textContent = settings ? L("Uložiť výber", "Save choice") : L("Nastaviť", "Settings");
   };
   box.addEventListener("click", e => {
     const k = e.target.dataset && e.target.dataset.cookie;
@@ -177,8 +179,8 @@
   form.addEventListener("submit", async e => {
     e.preventDefault();
     const v = email.value.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { msg.textContent = "Zadajte, prosím, platný e-mail."; email.focus(); return; }
-    if (!ok.checked) { msg.textContent = "Bez súhlasu vám e-maily posielať nemôžem. Zaškrtnite, prosím, súhlas."; ok.focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { msg.textContent = L("Zadajte, prosím, platný e-mail.", "Please enter a valid e-mail."); email.focus(); return; }
+    if (!ok.checked) { msg.textContent = L("Bez súhlasu vám e-maily posielať nemôžem. Zaškrtnite, prosím, súhlas.", "I can’t send e-mails without your consent. Please tick the box."); ok.focus(); return; }
     const url = form.dataset.endpoint;
     // v náhľade (mimo ostrej domény) sa nič neodosiela, len sa ukáže, ako to vyzerá
     const live = /(^|\.)masazelayla\.sk$|\.github\.io$|^localhost$|^127\.0\.0\.1$/.test(location.hostname);
@@ -193,7 +195,7 @@
       show(false);
     } catch (err) {
       btn.disabled = false;
-      msg.textContent = "Nepodarilo sa to odoslať. Skúste to o chvíľu znova alebo mi napíšte na masazelayla@gmail.com.";
+      msg.textContent = L("Nepodarilo sa to odoslať. Skúste to o chvíľu znova alebo mi napíšte na masazelayla@gmail.com.", "Sending failed. Please try again shortly or write to masazelayla@gmail.com.");
     }
   });
 })();
@@ -234,7 +236,7 @@
         const box = sel.closest(".sx-card").querySelector(".sx-len");
         sel.addEventListener("change", () => {
           const it = items[sel.value];
-          box.innerHTML = it.opts.map(o => `<a href="${o.url}" target="_blank" rel="noopener" aria-label="Rezervovať: ${it.name}, ${o.min} min za ${o.price} €"><small>${o.min} min</small><b>${o.price} €</b></a>`).join("");
+          box.innerHTML = it.opts.map(o => `<a href="${o.url}" target="_blank" rel="noopener" aria-label="${L("Rezervovať", "Book")}: ${it.name}, ${o.min} min ${L("za", "for")} ${o.price} €"><small>${o.min} min</small><b>${o.price} €</b></a>`).join("");
         });
       });
     }
@@ -244,7 +246,7 @@
   const panels = [...document.querySelectorAll("[data-panel]")];
   if (panels.length > 1 && "IntersectionObserver" in window) {
     const nav = document.createElement("nav");
-    nav.className = "dots"; nav.setAttribute("aria-label", "Časti stránky");
+    nav.className = "dots"; nav.setAttribute("aria-label", L("Časti stránky", "Page sections"));
     panels.forEach(p => { const b = document.createElement("button"); b.type = "button"; b.innerHTML = `<span>${p.dataset.panel}</span>`; b.setAttribute("aria-label", p.dataset.panel); b.addEventListener("click", () => p.scrollIntoView({ behavior: "smooth" })); nav.appendChild(b); });
     document.body.appendChild(nav);
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) [...nav.children].forEach((b, i) => b.classList.toggle("on", panels[i] === e.target)); }), { threshold: 0.5 });
@@ -364,3 +366,8 @@
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) set(e.target.id); }), { rootMargin: "-30% 0px -55% 0px" });
   document.querySelectorAll(".pc-sec").forEach(s => io.observe(s));
 })();
+
+/* Prepínač jazyka: po kliknutí mimo sa zavrie */
+document.addEventListener("click", e => {
+  document.querySelectorAll("details.lang[open]").forEach(d => { if (!d.contains(e.target)) d.open = false; });
+});

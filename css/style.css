@@ -1052,7 +1052,13 @@ details[open] .plus::after{transform:rotate(0)}
   .js.docked .dock{transform:translateZ(0);opacity:1;visibility:visible;pointer-events:auto}
   .js.menu-open .dock{transform:translateZ(0);opacity:0;visibility:hidden;pointer-events:none}
 }
-/* prepínač jazyka v hlavičke (SK ↔ EN) */
-.lang-tg{display:inline-grid;place-items:center;min-width:2.6rem;height:2.6rem;padding:0 .6rem;border-radius:999px;border:1px solid var(--line-2);font:600 .72rem/1 var(--sans);letter-spacing:.14em;color:var(--cream);transition:background .25s,border-color .25s}
-.lang-tg:hover{border-color:var(--cream)}
-@media (min-width:1081px){.lang-tg{height:calc(46*var(--u));min-width:calc(46*var(--u));font-size:calc(13*var(--u))}}
+/* prepínač jazyka v hlavičke: aktuálny jazyk, po kliknutí sa pod ním ukáže druhý */
+.lang{position:relative}
+.lang summary{list-style:none;display:inline-flex;align-items:center;gap:.35rem;height:2.6rem;padding:0 .8rem;border-radius:999px;border:1px solid var(--line-2);font:600 .72rem/1 var(--sans);letter-spacing:.14em;color:var(--cream);cursor:pointer;user-select:none;transition:border-color .25s}
+.lang summary::-webkit-details-marker{display:none}
+.lang summary::after{content:"";width:.38rem;height:.38rem;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-.12rem) rotate(45deg);transition:transform .25s}
+.lang[open] summary::after{transform:translateY(.1rem) rotate(-135deg)}
+.lang summary:hover{border-color:var(--cream)}
+.lang a{position:absolute;left:0;right:0;top:calc(100% + .35rem);display:grid;place-items:center;height:2.4rem;border-radius:1rem;background:#fbf6ee;border:1px solid rgba(36,23,15,.18);font:600 .72rem/1 var(--sans);letter-spacing:.14em;color:#24170f;box-shadow:0 1rem 2rem -1rem rgba(0,0,0,.45)}
+.lang a:hover{background:#fff}
+@media (min-width:1081px){.lang summary{height:calc(46*var(--u));font-size:calc(13*var(--u));padding:0 calc(16*var(--u))}}
