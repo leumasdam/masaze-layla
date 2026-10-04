@@ -372,3 +372,38 @@ const L = (sk, en) => (EN ? en : sk);
 document.addEventListener("click", e => {
   document.querySelectorAll("details.lang[open]").forEach(d => { if (!d.contains(e.target)) d.open = false; });
 });
+
+/* Recenzie: na počítači sa v kartách postupne striedajú ďalšie recenzie (veľká karta len dlhé, malé len krátke). */
+(() => {
+  const wall = document.querySelector("[data-rv]");
+  if (!wall || !matchMedia("(min-width:761px)").matches || matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  const all = [...wall.querySelectorAll(".rv-card")];
+  const data = el => ({ n: el.querySelector("b").textContent, t: el.querySelector("blockquote p").textContent, long: el.dataset.long === "1" });
+  const pool = all.map(data), slots = all.filter(el => !el.classList.contains("rv-x"));
+  const shown = new Set(slots.map(el => data(el).n));
+  let k = 0, paused = false;
+  wall.addEventListener("mouseenter", () => (paused = true));
+  wall.addEventListener("mouseleave", () => (paused = false));
+  const swap = el => {
+    const long = el.dataset.long === "1", cur = data(el).n;
+    const cand = pool.filter(r => r.long === long && !shown.has(r.n));
+    if (!cand.length) return;
+    const next = cand[0];
+    pool.push(pool.splice(pool.indexOf(next), 1)[0]); // použitú dať na koniec, aby sa striedali všetky
+    el.classList.add("swap");
+    setTimeout(() => {
+      el.querySelector("blockquote p").textContent = next.t;
+      el.querySelector("b").textContent = next.n;
+      el.querySelector(".rv-av").textContent = next.n[0];
+      shown.delete(cur); shown.add(next.n);
+      el.classList.remove("swap");
+    }, 500);
+  };
+  // malé karty po jednej každé 4 s, veľká každé tretie kolo
+  const small = slots.filter(el => !el.classList.contains("rv-feat")), feat = slots.find(el => el.classList.contains("rv-feat"));
+  setInterval(() => {
+    if (paused || document.hidden) return;
+    k++;
+    swap(k % 3 === 0 && feat ? feat : small[k % small.length]);
+  }, 4000);
+})();

@@ -1132,6 +1132,14 @@ details[open] .plus::after{transform:rotate(0)}
   .rv-feat blockquote p{font-size:1.2rem}
   .rv-feat::before{font-size:9rem;top:-1.2rem}
 }
+/* recenzie: striedanie na počítači */
+@media (min-width:761px){
+  .rv-card.rv-x{display:none}
+  .rv-card blockquote{min-height:5.1rem}
+  .rv-feat blockquote{min-height:calc(4 * 1.38 * clamp(1.35rem,1.75vw,1.75rem))}
+  .rv-card blockquote,.rv-card figcaption{transition:opacity .5s var(--ease),transform .5s var(--ease)}
+  .rv-card.swap blockquote,.rv-card.swap figcaption{opacity:0;transform:translateY(.4rem)}
+}
 
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
