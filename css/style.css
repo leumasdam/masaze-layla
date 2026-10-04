@@ -295,7 +295,7 @@ details[open] .plus::after{transform:rotate(0)}
 .cookie-opts input{width:1.1rem;height:1.1rem;accent-color:#24170f}
 .cookie-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem;margin-top:.4rem}
 .cookie-link{font-size:.75rem;color:#24170f;text-decoration:underline;text-underline-offset:.2rem}
-.cookie-btns{display:grid;grid-template-columns:repeat(3,minmax(11rem,17rem));gap:.8rem;flex:1;justify-content:end}
+.cookie-btns{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(11rem,17rem);gap:.8rem;flex:1;justify-content:end}
 .cookie-yes,.cookie-no,.cookie-more{min-height:3rem;padding:0 1.2rem;border-radius:.4rem;font:700 .82rem/1 var(--sans);transition:background .2s,transform .2s}
 .cookie-yes,.cookie-no{background:#24170f;color:#fbf6ee}
 .cookie-yes:hover,.cookie-no:hover{background:#3a2a1e}
@@ -304,7 +304,8 @@ details[open] .plus::after{transform:rotate(0)}
 @media (max-width:760px){
   .cookie{left:.5rem;right:.5rem;bottom:.5rem;padding:1.1rem 1.1rem 1rem;gap:.8rem;max-height:calc(100dvh - 1rem);overflow:auto}
   .cookie-text p{font-size:.74rem;line-height:1.5}
-  .cookie-btns{grid-template-columns:1fr 1fr;width:100%}
+  .cookie-btns{grid-auto-flow:row;grid-template-columns:1fr 1fr;width:100%}
+  .cookie-btns:not(:has(.cookie-no:not([hidden]))) .cookie-more{grid-column:1/-1}
   .cookie-yes{grid-column:1/-1;order:-1}
   .cookie-foot{flex-direction:column-reverse;align-items:stretch;gap:.7rem}
   .cookie-link{text-align:center}
