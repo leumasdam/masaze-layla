@@ -1077,6 +1077,46 @@ details[open] .plus::after{transform:rotate(0)}
   .bk-dialog .bk-cal .bk-frame{border-radius:.7rem}
 }
 
+/* recenzie z Google: skóre vľavo, citáty vpravo; na mobile posuvný pás */
+.rv{background:var(--bg-2)}
+.rv-in{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:clamp(2rem,5vw,6rem);align-items:center}
+.rv-score{display:grid;gap:1.3rem;justify-items:start}
+.rv-num{display:grid;grid-template-columns:auto auto;column-gap:1.1rem;row-gap:.35rem;align-items:center;margin-top:.4rem}
+.rv-num b{grid-row:span 2;font:400 clamp(4.6rem,7.6vw,7.4rem)/.82 var(--serif);letter-spacing:-.045em;color:var(--cream)}
+.rv-num span{font-size:.82rem;line-height:1.45;color:var(--muted)}
+.stars{display:inline-flex;gap:.16rem;color:var(--accent)}
+.stars svg{width:1.05rem;height:1.05rem;fill:currentColor}
+.rv-wall{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.rv-card{position:relative;display:flex;flex-direction:column;gap:1rem;margin:0;padding:1.6rem 1.7rem 1.4rem;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);overflow:hidden}
+.rv-card blockquote{margin:0;flex:1}
+.rv-card blockquote p{font:400 1.12rem/1.5 var(--serif);color:var(--cream);text-wrap:pretty}
+.rv-feat{grid-column:1/-1;padding:2.2rem 2.6rem 1.8rem}
+.rv-feat blockquote p{font-size:clamp(1.35rem,1.75vw,1.75rem);line-height:1.38;font-style:italic;max-width:44rem}
+.rv-feat::before{content:"\201C";position:absolute;right:1.6rem;top:-1.6rem;font:400 12rem/1 var(--serif);color:var(--accent);opacity:.22;pointer-events:none}
+.rv-card figcaption{display:flex;align-items:center;gap:.7rem;font-size:.86rem}
+.rv-av{width:2.1rem;height:2.1rem;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--bg);font:600 .9rem/1 var(--sans)}
+.rv-card figcaption b{color:var(--cream);font-weight:500}
+.rv-card figcaption small{margin-left:auto;display:inline-flex;align-items:center;gap:.4rem;color:var(--muted);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
+.rv .g{width:.95rem;height:.95rem}
+/* hodnotenie pod tlačidlom v úvode */
+.rh-rate{display:flex;width:fit-content;align-items:center;gap:.6rem;margin-top:1.3rem;color:var(--cream);font-size:.95rem;line-height:1}
+.rh-rate b{font:400 1.4rem/1 var(--serif)}
+.rh-rate span{opacity:.85;border-bottom:1px solid rgba(36,23,15,.35);padding-bottom:.15rem}
+.rh-rate:hover span{border-color:currentColor}
+.rh-rate .stars{color:var(--lime)}
+.rh-rate .stars svg{width:1rem;height:1rem}
+@media (max-width:1080px){
+  .rv-in{grid-template-columns:1fr;gap:2.2rem}
+}
+@media (max-width:760px){
+  .rv-num b{font-size:4.4rem}
+  .rv-wall{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:.8rem;margin-inline:calc(-1*var(--gut));padding-inline:var(--gut);scroll-padding-inline:var(--gut);scrollbar-width:none}
+  .rv-wall::-webkit-scrollbar{display:none}
+  .rv-card,.rv-feat{flex:none;width:82vw;scroll-snap-align:start;padding:1.4rem 1.4rem 1.2rem}
+  .rv-feat blockquote p{font-size:1.2rem}
+  .rv-feat::before{font-size:9rem;top:-1.2rem}
+}
+
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
 .rh,.hero,.sx,.cta,.hd{
