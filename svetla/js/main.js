@@ -151,7 +151,7 @@ const L = (sk, en) => (EN ? en : sk);
   };
   const save = c => { c.t = Date.now(); try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} send(c); box.hidden = true; };
   const open = settings => {
-    const c = read() || { a: false, m: false };
+    const c = read() || { a: true, m: true };
     a.checked = !!c.a; m.checked = !!c.m; opts.hidden = !settings; box.hidden = false;
     box.querySelector('[data-cookie="none"]').hidden = !settings;
     box.querySelector('[data-cookie="more"]').textContent = settings ? L("Uložiť výber", "Save choice") : L("Nastavenia", "Settings");
