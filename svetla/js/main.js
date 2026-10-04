@@ -153,7 +153,7 @@ const L = (sk, en) => (EN ? en : sk);
   const open = settings => {
     const c = read() || { a: false, m: false };
     a.checked = !!c.a; m.checked = !!c.m; opts.hidden = !settings; box.hidden = false;
-    box.querySelector('[data-cookie="more"]').textContent = settings ? L("Uložiť výber", "Save choice") : L("Nastaviť", "Settings");
+    box.querySelector('[data-cookie="more"]').textContent = settings ? L("Uložiť výber", "Save choice") : L("Nastavenia", "Settings");
   };
   box.addEventListener("click", e => {
     const k = e.target.dataset && e.target.dataset.cookie;
