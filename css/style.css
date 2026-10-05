@@ -1290,3 +1290,4 @@ details[open] .plus::after{transform:rotate(0)}
 .sv-hero .rh-rate .stars{color:#e3f25a}
 .sv-fit li p::first-letter{text-transform:uppercase}
 .sv-fit li p::after{content:"."}
+.sv-price{scroll-margin-top:5.5rem}
