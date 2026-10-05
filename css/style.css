@@ -3,7 +3,7 @@
   --bg:#17100b; --bg-2:#1f1610; --surface:#2a1d14; --surface-2:#34251a;
   --cream:#f4efe6; --text:#d8cab7; --muted:#a8957f; --line:rgba(244,239,230,.14); --line-2:rgba(244,239,230,.28);
   --accent:#a3b18a; --accent-d:#6b7b57; --lime:#e3f25a; --paper:#f6efe5; --ink:#24170f; --ink-2:#5c4a3b;
-  --serif:"Fraunces",Georgia,"Times New Roman",serif; --sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif; --hand:"Caveat","Segoe Script",cursive;
+  --serif:"Playfair Display","Cormorant Garamond",Georgia,serif; --sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif; --hand:"Caveat","Segoe Script",cursive;
   --gut:clamp(1.125rem,4.2vw,4rem); --head:5.25rem; --r:1.375rem; --ease:cubic-bezier(.2,.7,.2,1);
   color-scheme:dark;
 }
@@ -1291,6 +1291,3 @@ details[open] .plus::after{transform:rotate(0)}
 .sv-fit li p::first-letter{text-transform:uppercase}
 .sv-fit li p::after{content:"."}
 .sv-price{scroll-margin-top:5.5rem}
-/* Fraunces: veľké nadpisy o niečo ľahšie, nech pôsobia vzdušne */
-.rhome .t1,.sv-hero .t1,.rh .t1,.rh .t2{font-weight:350}
-.h2,.h3{font-weight:380}
