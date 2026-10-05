@@ -1379,3 +1379,4 @@ details[open] .plus::after{transform:rotate(0)}
   @keyframes promoPulse{0%,100%{box-shadow:0 1.6rem 3rem -1.2rem rgba(60,35,15,.55),0 0 0 calc(10*var(--u)) rgba(122,101,85,.14)}50%{box-shadow:0 1.6rem 3rem -1.2rem rgba(60,35,15,.55),0 0 0 calc(22*var(--u)) rgba(122,101,85,0)}}
 }
 @media (prefers-reduced-motion:reduce){.promo,.promo-ring{animation:none!important}}
+.ct{background:#fff}.ct-bg{opacity:.22}
