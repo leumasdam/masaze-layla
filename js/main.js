@@ -407,3 +407,20 @@ document.addEventListener("click", e => {
     swap(k % 3 === 0 && feat ? feat : small[k % small.length]);
   }, 4000);
 })();
+
+/* Certifikáty: galéria osvedčení v okne. */
+document.querySelectorAll(".ct").forEach(sec => {
+  const dlg = sec.querySelector(".ct-dlg");
+  if (!dlg || !dlg.showModal) return;
+  const slides = [...dlg.querySelectorAll("[data-ct-slide]")], count = dlg.querySelector("[data-ct-count]");
+  let i = 0;
+  const show = n => { i = (n + slides.length) % slides.length; slides.forEach((s, k) => (s.hidden = k !== i)); count.textContent = `${i + 1} / ${slides.length}`; };
+  sec.addEventListener("click", e => {
+    const b = e.target.closest("[data-ct]");
+    if (b) { show(+b.dataset.ct); dlg.showModal(); return; }
+    const st = e.target.closest("[data-ct-step]");
+    if (st) show(i + +st.dataset.ctStep);
+    if (e.target.closest("[data-ct-close]") || e.target === dlg) dlg.close();
+  });
+  dlg.addEventListener("keydown", e => { if (e.key === "ArrowRight") show(i + 1); if (e.key === "ArrowLeft") show(i - 1); });
+});
