@@ -1152,3 +1152,9 @@ details[open] .plus::after{transform:rotate(0)}
     padding:.55rem 1rem;border-radius:999px;background:rgba(23,16,11,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);z-index:2}
   .rhome .rh-rate span{border-bottom:0}
 }
+/* počítač: hodnotenie vycentrované pod tlačidlom */
+@media (min-width:761px){
+  .rh-cta{display:inline-flex;flex-direction:column;align-items:center}
+  .rh-cta .rh-rate{margin-top:1.1rem}
+}
+.rh-rate b{font-variant-numeric:lining-nums}
