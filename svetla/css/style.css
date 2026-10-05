@@ -1143,6 +1143,15 @@ details[open] .plus::after{transform:rotate(0)}
 /* podnadpis v úvode: na mobile kratšia verzia */
 .rh-lead .lead-m{display:none}
 @media (max-width:760px){.rh-lead .lead-d{display:none}.rh-lead .lead-m{display:inline}}
+.rhome .t1 .br-m{display:none}
+@media (max-width:760px){.rhome .t1 .br-d{display:none}.rhome .t1 .br-m{display:inline}}
+/* mobil: hodnotenie dole v strede úvodnej fotky, na tmavej sklenenej podložke kvôli čitateľnosti */
+@media (max-width:760px){
+  .rhome{position:relative}
+  .rhome .rh-rate{position:absolute;left:50%;bottom:calc(1.4rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);margin:0;white-space:nowrap;
+    padding:.55rem 1rem;border-radius:999px;background:rgba(23,16,11,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);z-index:2}
+  .rhome .rh-rate span{border-bottom:0}
+}
 
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
