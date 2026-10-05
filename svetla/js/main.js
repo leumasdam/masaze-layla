@@ -444,3 +444,53 @@ document.querySelectorAll(".ct").forEach(sec => {
     dlg.insertBefore(tag, dlg.children[1] || null);
   }
 })();
+
+/* Darčekový poukaz: živý náhľad poukazu + objednávka do Google formulára (rovnaký ako zber e-mailov, typ v poznámke). */
+(() => {
+  const form = document.getElementById("vo-form");
+  if (!form) return;
+  const $v = k => document.querySelectorAll(`[data-vo="${k}"]`);
+  const set = (k, v) => $v(k).forEach(el => (el.textContent = v));
+  const pick = () => form.querySelector('input[name="vo-p"]:checked');
+  const draw = () => {
+    const o = pick();
+    set("t", o.dataset.t); set("m", o.dataset.m); set("p", o.dataset.price);
+    const f = form.querySelector("#vo-for").value.trim();
+    set("for", f);
+  };
+  form.addEventListener("input", draw); form.addEventListener("change", draw); draw();
+  const msg = document.getElementById("vo-msg"), done = document.getElementById("vo-done"), side = document.querySelector(".vo-side");
+  const buy = document.querySelector(".vo-buy");
+  const show = preview => {
+    form.hidden = true; side.hidden = true; done.hidden = false;
+    document.getElementById("vo-note").hidden = !preview;
+    done.scrollIntoView({ behavior: "smooth", block: "center" });
+    (window.dataLayer = window.dataLayer || []).push({ event: "poukaz_objednavka", value: +pick().dataset.price, currency: "EUR", ukazka: !!preview });
+  };
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const g = id => form.querySelector(id);
+    const name = g("#vo-name").value.trim(), tel = g("#vo-tel").value.trim(), mail = g("#vo-mail").value.trim();
+    const bad = (el, t) => { msg.textContent = t; el.focus(); };
+    if (!name) return bad(g("#vo-name"), "Napíšte, prosím, vaše meno.");
+    if (tel.replace(/\D/g, "").length < 9) return bad(g("#vo-tel"), "Zadajte, prosím, telefónne číslo.");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail)) return bad(g("#vo-mail"), "Zadajte, prosím, platný e-mail.");
+    if (!g("#vo-ok").checked) return bad(g("#vo-ok"), "Bez súhlasu objednávku nevybavím. Zaškrtnite, prosím, súhlas.");
+    set("mail", mail);
+    const url = form.dataset.endpoint;
+    const live = /(^|\.)masazelayla\.sk$|\.workers\.dev$/.test(location.hostname);
+    if (!url || !live) { show(true); return; }
+    buy.disabled = true; msg.textContent = "Odosielam…";
+    const o = pick(), d = form.querySelector('input[name="vo-d"]:checked').value, f = g("#vo-for").value.trim();
+    const note = `OBJEDNÁVKA POUKAZU: ${o.value} za ${o.dataset.price} € | ${d} | meno: ${name} | tel: ${tel}` + (f ? ` | venovanie: ${f}` : "");
+    try {
+      const body = new URLSearchParams();
+      body.set(form.dataset.fEmail, mail); body.set(form.dataset.fNote, note);
+      await fetch(url, { method: "POST", mode: "no-cors", body });
+      show(false);
+    } catch (err) {
+      buy.disabled = false;
+      msg.textContent = "Nepodarilo sa to odoslať. Skúste to znova alebo zavolajte na 0904 098 246.";
+    }
+  });
+})();

@@ -31,7 +31,7 @@ if(/(^|\.)masazelayla\.sk$/.test(location.hostname)){(function(w,d,s,l,i){w[l]=w
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Figtree:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="css/style.css?v=6400820b">
+<link rel="stylesheet" href="css/style.css?v=e1681314">
 <script>document.documentElement.classList.add("js")</script>
 <style>
 /* úvodná animácia loga – inline, aby sa ukázala hneď pri načítaní */
@@ -76,19 +76,56 @@ if(/(^|\.)masazelayla\.sk$/.test(location.hostname)){(function(w,d,s,l,i){w[l]=w
 <section class="rh rh-svc rh-short">
     <picture><img width="1536" height="1024" class="bg" src="img/poukaz-hero.jpg" alt="Darčekový poukaz na masáž s eukalyptom, uteráky a sviečka v štúdiu Masáže Layla" style="object-position:70% 60%" fetchpriority="high"></picture>
     <h1><span class="kicker">Darčekový poukaz  •  Piešťany</span><span class="t1">Darček, ktorý</span><em class="t2">naozaj poteší.</em></h1>
-    <p class="rh-lead">Darčekový poukaz na masáž, bankovanie alebo maderoterapiu v Piešťanoch.<br>Vystavím ho na procedúru a dĺžku, ktorú si vyberiete.</p>
+    <p class="rh-lead">Darčekový poukaz na masáž, bankovanie alebo maderoterapiu v Piešťanoch.<br>Objednáte ho tu za minútu, od 20 €.</p>
     
-    <a class="btn" href="tel:+421904098246">Objednať poukaz <svg class="i i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+    <a class="btn" href="#objednat">Kúpiť poukaz <svg class="i i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
   </section>
-<section class="sv-fit wrap">
-  <header data-reveal><p class="kicker">Tipy na poukaz</p><h2 class="h2">Najčastejšie darované procedúry<em>.</em></h2>
-    <p>Poukaz vystavím na ktorúkoľvek procedúru z <a class="link" href="cennik.html">cenníka</a>. Tieto sa darujú najčastejšie.</p></header>
-  <ul><li data-reveal><span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.3 12.3l2.500 2.500 5-5.300"/></svg></span><p>Relaxačná masáž celého tela: 60 min za 30 €</p></li><li data-reveal><span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.3 12.3l2.500 2.500 5-5.300"/></svg></span><p>Relaxačná masáž celého tela: 90 min za 50 €</p></li><li data-reveal><span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.3 12.3l2.500 2.500 5-5.300"/></svg></span><p>Komplexná regenerácia (masáž + bankovanie): 60 min za 30 €</p></li><li data-reveal><span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.3 12.3l2.500 2.500 5-5.300"/></svg></span><p>Maderoterapia s prvkami lymfomodelingu: 60 min za 40 €</p></li></ul>
+<section class="vo wrap" id="objednat">
+  <header class="vo-h" data-reveal><p class="kicker">Objednávka poukazu</p><h2 class="h2">Vyberte darček<em>.</em></h2></header>
+  <div class="vo-grid">
+    <form class="vo-form" id="vo-form" data-endpoint="https://docs.google.com/forms/d/e/1FAIpQLSfy10KnuKcYColSJ_Wgj7AVsv6atWdKo-LVv-8P54jqHw9cVg/formResponse" data-f-email="entry.777405524" data-f-note="entry.1038545904" novalidate>
+      <fieldset class="vo-step"><legend><span>1</span>Procedúra</legend>
+        <div class="vo-opts"><label class="vo-opt"><input type="radio" name="vo-p" value="Relaxačná masáž 60 min" data-price="30" data-t="Relaxačná masáž" data-m="60" checked><span><b>Relaxačná masáž</b><small>60 min · celé telo</small></span><em>30 €</em></label><label class="vo-opt"><input type="radio" name="vo-p" value="Relaxačná masáž 90 min" data-price="50" data-t="Relaxačná masáž" data-m="90"><span><b>Relaxačná masáž</b><small>90 min · celé telo bez ponáhľania</small></span><em>50 €</em></label><label class="vo-opt"><input type="radio" name="vo-p" value="Masáž + bankovanie 60 min" data-price="30" data-t="Masáž + bankovanie" data-m="60"><span><b>Masáž + bankovanie</b><small>60 min · komplexná regenerácia</small></span><em>30 €</em></label><label class="vo-opt"><input type="radio" name="vo-p" value="Maderoterapia 60 min" data-price="40" data-t="Maderoterapia" data-m="60"><span><b>Maderoterapia</b><small>60 min · drevené valčeky</small></span><em>40 €</em></label><label class="vo-opt"><input type="radio" name="vo-p" value="Maderoterapia 90 min" data-price="60" data-t="Maderoterapia" data-m="90"><span><b>Maderoterapia</b><small>90 min · dlhšie sedenie</small></span><em>60 €</em></label><label class="vo-opt"><input type="radio" name="vo-p" value="Bankovanie 30 min" data-price="20" data-t="Bankovanie" data-m="30"><span><b>Bankovanie</b><small>30 min · chrbát a šija</small></span><em>20 €</em></label></div></fieldset>
+      <fieldset class="vo-step"><legend><span>2</span>Ako poukaz chcete</legend>
+        <div class="vo-pills">
+          <label class="vo-pill"><input type="radio" name="vo-d" value="e-mailom (PDF)" checked><span><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 6.5l8.500 7 8.500-7"/></svg> E-mailom, hneď po zaplatení</span></label>
+          <label class="vo-pill"><input type="radio" name="vo-d" value="vyzdvihnutie v štúdiu"><span><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6.5-6.6 6.5-11.7a6.5 6.5 0 10-13 0C5.5 14.4 12 21 12 21z"/><circle cx="12" cy="9.3" r="2.2"/></svg> Vyzdvihnem si v štúdiu</span></label>
+        </div></fieldset>
+      <fieldset class="vo-step"><legend><span>3</span>Komu a od koho</legend>
+        <div class="vo-fields">
+          <label class="field" for="vo-for"><span>Pre koho je poukaz (nepovinné)</span><input id="vo-for" name="pre" maxlength="40" placeholder="napr. Pre mamu" autocomplete="off"></label>
+          <label class="field" for="vo-name"><span>Vaše meno</span><input id="vo-name" name="meno" autocomplete="name" required></label>
+          <label class="field" for="vo-tel"><span>Telefón</span><input id="vo-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="09xx xxx xxx" required></label>
+          <label class="field" for="vo-mail"><span>E-mail</span><input id="vo-mail" name="email" type="email" autocomplete="email" inputmode="email" placeholder="meno@email.sk" required></label>
+        </div>
+        <label class="check" for="vo-ok"><input type="checkbox" id="vo-ok" required><span>Súhlasím so spracovaním údajov na vybavenie objednávky. <a href="sukromie.html">Ako narábam s údajmi</a></span></label>
+      </fieldset>
+      <p class="lead-msg" id="vo-msg" role="status" aria-live="polite"></p>
+    </form>
+    <aside class="vo-side" aria-label="Súhrn objednávky">
+      <div class="vo-card" aria-hidden="true">
+        <span class="vo-logo"></span>
+        <small>Darčekový poukaz</small>
+        <b class="vo-c-t" data-vo="t">Relaxačná masáž</b>
+        <span class="vo-c-m"><span data-vo="m">60</span> minút</span>
+        <span class="vo-c-for" data-vo="for"></span>
+        <i class="vo-c-p"><span data-vo="p">30</span> €</i>
+      </div>
+      <button class="btn vo-buy" type="submit" form="vo-form"><span>Objednať poukaz · <span data-vo="p">30</span> €</span> <svg class="i i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+      <p class="vo-safe">Teraz nič neplatíte. Do 24 hodín sa vám ozvem s platbou.<br>Radšej telefonicky? <a href="tel:+421904098246">+421 904 098 246</a></p>
+    </aside>
+    <div class="vo-done" id="vo-done" hidden>
+      <span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.3 12.3l2.500 2.500 5-5.300"/></svg></span>
+      <h3 class="h3">Ďakujem, objednávku mám.</h3>
+      <p>Do 24 hodín vám pošlem platobné údaje na <b data-vo="mail"></b>. Ak sa ponáhľate, zavolajte na <a href="tel:+421904098246">+421 904 098 246</a>.</p>
+      <p class="lead-note" id="vo-note" hidden>Ukážka: objednávka sa zatiaľ nikam neodoslala.</p>
+    </div>
+  </div>
 </section>
 
 <section class="sv-steps wrap">
   <header data-reveal><p class="kicker">Objednávka</p><h2 class="h2">Ako poukaz <em>objednať.</em></h2></header>
-  <ol><li data-reveal><span class="n">01</span><h3>Zavolajte alebo napíšte</h3><p>Na <a href="tel:+421904098246">+421 904 098 246</a> alebo správou na <a href="https://www.instagram.com/masazelayla/" target="_blank" rel="noopener">Instagrame</a>. Poviete, komu je poukaz určený.</p></li><li data-reveal><span class="n">02</span><h3>Vyberieme procedúru</h3><p>Dohodneme procedúru, dĺžku, platbu a to, ako si poukaz prevezmete.</p></li><li data-reveal><span class="n">03</span><h3>Obdarovaný si vyberie termín</h3><p>S poukazom si rezervuje termín, ktorý mu vyhovuje. Masáž sa odohrá v pokojnom štúdiu na Hodžovej.</p></li></ol>
+  <ol><li data-reveal><span class="n">01</span><h3>Vyberte a objednajte</h3><p>Zvoľte procedúru, spôsob odovzdania a nechajte mi kontakt. Zaberie to minútu.</p></li><li data-reveal><span class="n">02</span><h3>Ozvem sa vám</h3><p>Do 24 hodín vám pošlem platobné údaje. Po zaplatení dostanete poukaz e-mailom alebo si ho vyzdvihnete v štúdiu.</p></li><li data-reveal><span class="n">03</span><h3>Obdarovaný si vyberie termín</h3><p>S poukazom si rezervuje termín, ktorý mu vyhovuje. Masáž sa odohrá v pokojnom štúdiu na Hodžovej.</p></li></ol>
 </section>
 
 <section class="wrap sec">
@@ -204,6 +241,6 @@ if(/(^|\.)masazelayla\.sk$/.test(location.hostname)){(function(w,d,s,l,i){w[l]=w
 </dialog>
 
 <script type="application/json" id="bk-data">{"book":"https://booqme.app/sk/rezervacia/masaze-layla","phone":"+421 904 098 246","phoneHref":"tel:+421904098246","cats":[{"key":"masaze","name":"Masáže","items":[{"key":"masaze","name":"Relaxačná masáž celého tela","opts":[{"min":30,"price":20,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31350"},{"min":60,"price":30,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31347"},{"min":90,"price":50,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31351"}]},{"key":"chrbat","name":"Masáž chrbta, šije a ramien","opts":[{"min":30,"price":20,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31356"},{"min":60,"price":30,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31357"}]},{"key":"hlava","name":"Masáž hlavy a tváre","opts":[{"min":30,"price":20,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31358"},{"min":60,"price":30,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31359"}]},{"key":"chodidla","name":"Masáž chodidiel","opts":[{"min":30,"price":20,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31360"},{"min":60,"price":30,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31361"}]},{"key":"makke","name":"Mäkké techniky","opts":[{"min":30,"price":20,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31362"},{"min":60,"price":30,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31363"}]}]},{"key":"bankovanie","name":"Bankovanie","items":[{"key":"bankovanie","name":"Bankovanie","opts":[{"min":30,"price":20,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31352"},{"min":45,"price":25,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31353"}]},{"key":"komplex","name":"Komplexná regenerácia (masáž + bankovanie)","opts":[{"min":60,"price":30,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31354"},{"min":90,"price":50,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31355"}]}]},{"key":"maderoterapia","name":"Maderoterapia","items":[{"key":"maderoterapia","name":"Maderoterapia s prvkami lymfomodelingu","opts":[{"min":60,"price":40,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31348"},{"min":90,"price":60,"url":"https://booqme.app/sk/rezervacia/masaze-layla?service=31349"}]}]}]}</script>
-<script src="js/main.js?v=6400820b" defer></script>
+<script src="js/main.js?v=e1681314" defer></script>
 </body>
 </html>
