@@ -407,3 +407,34 @@ document.addEventListener("click", e => {
     swap(k % 3 === 0 && feat ? feat : small[k % small.length]);
   }, 4000);
 })();
+
+/* Úvod: svetlo sviečky pod kurzorom – fotka sa okolo kurzora zobrazí naplno (len myš, väčšie obrazovky). */
+(() => {
+  const hero = document.querySelector(".rhome");
+  if (!hero || !hero.querySelector(".bg-reveal") || !matchMedia("(min-width:761px) and (hover:hover)").matches) return;
+  let tx = .7, ty = .45, x = tx, y = ty, raf = 0;
+  const loop = () => {
+    x += (tx - x) * .12; y += (ty - y) * .12;
+    hero.style.setProperty("--mx", (x * 100).toFixed(2) + "%"); hero.style.setProperty("--my", (y * 100).toFixed(2) + "%");
+    raf = Math.abs(tx - x) + Math.abs(ty - y) > .0005 ? requestAnimationFrame(loop) : 0;
+  };
+  hero.addEventListener("pointermove", e => {
+    const r = hero.getBoundingClientRect();
+    tx = (e.clientX - r.left) / r.width; ty = (e.clientY - r.top) / r.height;
+    hero.classList.add("lit");
+    if (!raf) raf = requestAnimationFrame(loop);
+  });
+  hero.addEventListener("pointerleave", () => hero.classList.remove("lit"));
+})();
+
+/* Úvod: „Kde vás to ťaží?“ – prepínanie procedúr. */
+(() => {
+  const pk = document.querySelector(".pk");
+  if (!pk) return;
+  pk.addEventListener("click", e => {
+    const b = e.target.closest("[data-pk]");
+    if (!b) return;
+    pk.querySelectorAll("[data-pk]").forEach(c => { const on = c === b; c.classList.toggle("on", on); c.setAttribute("aria-pressed", on); });
+    pk.querySelectorAll("[data-pk-pane]").forEach(p => { p.hidden = p.dataset.pkPane !== b.dataset.pk; });
+  });
+})();
