@@ -1294,16 +1294,17 @@ details[open] .plus::after{transform:rotate(0)}
 /* úvod: pôvodná AI fotka ako jemný, takmer priesvitný závoj svetla cez reálnu fotku */
 .rhome .bg-ghost{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;pointer-events:none;opacity:.45;-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 38%,transparent 70%);mask-image:linear-gradient(90deg,#000 0%,#000 38%,transparent 70%)}
 @media (max-width:760px){.rhome .bg-ghost{display:none}}
-/* úvod: len pôvodná AI fotka, takmer priesvitná na bielom podklade, tmavé písmo */
-.rhome{background:#fff}
-.rhome .bg{opacity:.18}
-.rhome::before{background:linear-gradient(90deg,rgba(255,255,255,.55),rgba(255,255,255,0) 60%)!important}
-.rhome .kicker,.rhome .t1,.rhome .rh-lead,.rhome .rh-rate,.rhome-scroll,.rhome-side{color:#24170f!important}
-.rhome .rh-rate span{border-color:rgba(36,23,15,.3)!important}
-.rhome .rh-rate .stars{color:#6b7b57!important}
-.rhome-scroll::before{background:#24170f!important}
-[data-page="index"] .hd:not(.scrolled){--cream:#24170f;--text:#4d3c2e;--muted:#7f6b58;--line:rgba(36,23,15,.14);--line-2:rgba(36,23,15,.26)}
-@media (max-width:760px){.rhome::before{background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,0) 60%)!important}.rhome .rh-rate{background:rgba(255,255,255,.7)!important;border-color:rgba(36,23,15,.12)!important}}
+/* úvod (len väčšie obrazovky): AI fotka takmer priesvitná na bielom podklade, tmavé písmo; mobil ostáva tmavý */
+@media (min-width:761px){
+  .rhome{background:#fff}
+  .rhome .bg{opacity:.18}
+  .rhome::before{background:linear-gradient(90deg,rgba(255,255,255,.55),rgba(255,255,255,0) 60%)!important}
+  .rhome .kicker,.rhome .t1,.rhome .rh-lead,.rhome .rh-rate,.rhome-scroll,.rhome-side{color:#24170f!important}
+  .rhome .rh-rate span{border-color:rgba(36,23,15,.3)!important}
+  .rhome .rh-rate .stars{color:#6b7b57!important}
+  .rhome-scroll::before{background:#24170f!important}
+  [data-page="index"] .hd:not(.scrolled){--cream:#24170f;--text:#4d3c2e;--muted:#7f6b58;--line:rgba(36,23,15,.14);--line-2:rgba(36,23,15,.26)}
+}
 
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
