@@ -599,7 +599,7 @@ details[open] .plus::after{transform:rotate(0)}
   .hd.scrolled{padding-block:calc(9*var(--u));background:rgba(20,12,7,.86);-webkit-backdrop-filter:blur(1rem);backdrop-filter:blur(1rem);box-shadow:0 1px 0 var(--line)}
   .hd-in,.hd.scrolled .hd-in{width:auto;max-width:none;margin:0;padding:0 calc(107*var(--u)) 0 calc(113*var(--u));height:calc(65*var(--u));border:0;border-radius:0;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
   .wordmark{width:calc(177*var(--u));height:calc(41*var(--u))}
-  .nav{margin:0 auto 0 calc(236*var(--u));gap:calc(46*var(--u));font:500 calc(16.5*var(--u))/1 var(--sans);letter-spacing:.1em}
+  .nav{margin:0 auto 0 calc(170*var(--u));gap:calc(34*var(--u));font:500 calc(16.5*var(--u))/1 var(--sans);letter-spacing:.1em}
   .nav a::after{bottom:calc(-2*var(--u));height:calc(3*var(--u))}
   .hd .btn{min-height:calc(65*var(--u));padding:0 calc(38*var(--u));font-size:calc(17.5*var(--u));letter-spacing:.12em;gap:calc(14*var(--u))}
   .hd .btn .i{width:calc(24*var(--u));height:calc(24*var(--u))}
@@ -754,12 +754,12 @@ details[open] .plus::after{transform:rotate(0)}
   [data-page="index"] .hd:not(.scrolled) .hd-in{padding-left:calc(97*var(--u));padding-right:calc(99*var(--u))}
   [data-page="index"] .hd:not(.scrolled){padding-top:calc(40*var(--u))}
   [data-page="index"] .hd:not(.scrolled) .wordmark{width:calc(236*var(--u));height:calc(54.5*var(--u))}
-  [data-page="index"] .hd:not(.scrolled) .nav{margin-left:calc(213*var(--u));gap:calc(70*var(--u));font-size:calc(22*var(--u));letter-spacing:0;text-transform:none;font-weight:400}
+  [data-page="index"] .hd:not(.scrolled) .nav{margin-left:calc(150*var(--u));gap:calc(46*var(--u));font-size:calc(22*var(--u));letter-spacing:0;text-transform:none;font-weight:400}
   [data-page="index"] .hd:not(.scrolled) .btn{min-height:calc(63*var(--u));padding:0 calc(42*var(--u));font-size:calc(18*var(--u));font-weight:500;letter-spacing:.16em}
   [data-page="o-mne"] .hd:not(.scrolled) .hd-in{padding-left:calc(218*var(--u));padding-right:calc(207*var(--u))}
-  [data-page="o-mne"] .hd:not(.scrolled) .nav{margin-left:calc(190*var(--u))}
+  [data-page="o-mne"] .hd:not(.scrolled) .nav{margin-left:calc(140*var(--u))}
   [data-page="kontakt"] .hd:not(.scrolled) .hd-in{padding-left:calc(170*var(--u));padding-right:calc(168*var(--u))}
-  [data-page="kontakt"] .hd:not(.scrolled) .nav{margin-left:calc(236*var(--u))}
+  [data-page="kontakt"] .hd:not(.scrolled) .nav{margin-left:calc(170*var(--u))}
 }
 .nav a{white-space:nowrap}
 @media (min-width:1081px){
@@ -1315,7 +1315,7 @@ details[open] .plus::after{transform:rotate(0)}
   .dz::before{background:none!important}
 }
 /* krátky hero podstránok (Poradňa) – rovnaká výška ako na Službách */
-@media (min-width:1081px){.rh-short{height:calc(var(--vh)*475/941);min-height:calc(440*var(--u))}}
+@media (min-width:1081px){.rh-short{min-height:max(calc(var(--vh)*475/941),calc(440*var(--u)))}}
 @media (max-width:1080px){.rh-short{min-height:26rem}}
 /* zavreté rezervačné okno sa nikdy nezobrazí (pravidlo pre kalendár ho inak nechalo visieť pod pätičkou) */
 .bk-dialog:not([open]){display:none!important}
@@ -1495,3 +1495,22 @@ main > .sec:last-of-type{margin-bottom:0}
 }
 .rh .btn.vo-hero-btn{background:#f6efe5;color:#24170f;border-color:#f6efe5;min-height:3.75rem;padding:0 2.1rem;font-size:.95rem;box-shadow:0 1rem 2.4rem -1rem rgba(0,0,0,.6)}
 .rh .btn.vo-hero-btn:hover{background:#fff;color:#24170f}
+
+/* úvod: pás s darčekovým poukazom */
+.vo-band-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:clamp(2.5rem,7vw,7rem);align-items:center}
+.vo-band-img{position:relative;max-width:30rem;width:100%;justify-self:center}
+.vo-band-img .vo-arch{margin:0;aspect-ratio:.86/1}
+.vo-band-card{position:absolute;right:-12%;bottom:-8%;width:62%;aspect-ratio:1.55/1;padding:1rem 1.15rem}
+.vo-band-card .vo-logo{width:4rem}
+.vo-band-card .vo-c-t{font-size:1.2rem}
+.vo-band-card .vo-c-p{right:1.1rem;top:.95rem;font-size:1.5rem}
+.vo-band-copy{display:grid;gap:1.2rem;justify-items:start;max-width:34rem}
+.vo-band-copy>p:not(.kicker){color:var(--text);line-height:1.7}
+.vo-band-tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.vo-band-tags li{padding:.45rem .9rem;border-radius:62rem;border:1px solid var(--line-2);font-size:.82rem;color:var(--cream)}
+@media (max-width:900px){
+  .vo-band-in{grid-template-columns:1fr}
+  .vo-band-img{max-width:22rem}
+  .vo-band-card{right:-6%;width:66%}
+}
+
