@@ -1308,6 +1308,12 @@ details[open] .plus::after{transform:rotate(0)}
 /* úvod: tlačidlo s hodnotením ako samostatný blok – väčší odstup od podnadpisu */
 @media (min-width:1081px){.rhome .rh-cta{margin-top:calc(52*var(--u))}.rhome .rh-cta .btn{margin-top:0}}
 @media (min-width:761px) and (max-width:1080px){.rhome .rh-cta{margin-top:2.6rem}.rhome .rh-cta .btn{margin-top:0}}
+/* zľava + otázky (väčšie obrazovky): stena takmer priesvitná na bielom podklade, ako úvod */
+@media (min-width:761px){
+  .dz{background:#fff}
+  .dz-wall{opacity:.22}
+  .dz::before{background:none!important}
+}
 
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
