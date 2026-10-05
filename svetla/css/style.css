@@ -1382,6 +1382,42 @@ details[open] .plus::after{transform:rotate(0)}
 .ct{background:#fff}.ct-bg{opacity:.22}
 @media (min-width:1081px){.sx .sx-in{padding-bottom:calc(var(--vh)*.17)}}
 
+/* ================= TYPOGRAFICKÁ MIERKA (UI audit 5. 10.) =================
+   jeden systém pre celý web: kicker · H2 sekcie · H3 karty · perex · text · drobné · tlačidlá */
+:root{--fs-kick:11px;--fs-kick-hero:13px;--fs-h2:clamp(32px,3.3vw,48px);--fs-h2s:clamp(24px,2vw,30px);--fs-h3:clamp(19px,1.45vw,22px);
+  --fs-lead:clamp(16px,1.25vw,18px);--fs-body:clamp(15px,1.1vw,16px);--fs-small:13px;--fs-btn:13px;--h-btn:52px;--h-btn-hero:56px}
+/* kicker – všade rovnaký, v hero o stupeň väčší */
+.kicker{font-size:var(--fs-kick)!important;letter-spacing:.28em!important;line-height:1.5}
+.rh .kicker,.rhome .kicker,.sv-hero .kicker,.hero .kicker{font-size:var(--fs-kick-hero)!important;letter-spacing:.3em!important}
+/* H2 sekcií */
+main h2:not(.display):not(.sr):not(.h3):not(.h4){font-size:var(--fs-h2)!important;line-height:1.06!important;letter-spacing:-.015em}
+/* H2 na úrovni karty / bočného panela / článku */
+.rcard h2,.pc-side h2,.rk-list h2,.rk-card h2,.bk-title,.prose h2,.doc h2,.pc-sec h2,.ro-text h2,.rb-text h2,.rb-side h2{font-size:var(--fs-h2s)!important;line-height:1.12!important}
+main .h3{font-size:var(--fs-h2s)!important}
+/* H3 kariet */
+main h3{font-size:var(--fs-h3)!important;line-height:1.2!important}
+.sv-steps h3{font-size:clamp(21px,1.6vw,24px)!important}
+/* perex pod nadpisom */
+.rh-lead:not(.rhome .rh-lead),.sv-lead,.hero-lead,.sec-h>p:not(.kicker),.pc-lead{font-size:var(--fs-lead)!important;line-height:1.55!important}
+/* bežný text */
+main p:not([class]),main li:not([class])>span,.sv-intro-text>p:not(.kicker),.rcard p,.about-copy>p:not(.kicker),.ro-text p,.rb-text p,.faq details p,.prose p,.prose li{font-size:var(--fs-body)!important;line-height:1.65!important}
+/* drobný text */
+.fine,.post-meta,.cta-note,.lead-msg,.bk-alt,.bk-q,.sv-benefits p,.ct-list small,.rv-num span,.dz-side{font-size:var(--fs-small)!important;line-height:1.5!important}
+/* tlačidlá: jedna veľkosť, v hero o stupeň väčšie */
+main .btn,.cta .btn,.ct .btn{min-height:var(--h-btn)!important;padding:0 28px!important;font-size:var(--fs-btn)!important;letter-spacing:.14em!important;font-weight:500!important}
+.rhome .btn,.rh .btn,.sv-hero .btn,.hero .btn{min-height:var(--h-btn-hero)!important;padding:0 34px!important;font-size:14px!important}
+.btn-sm{min-height:44px!important}
+main .link{font-size:12.5px!important;letter-spacing:.14em!important}
+@media (max-width:760px){
+  :root{--fs-kick:11.5px;--fs-kick-hero:12px;--h-btn:52px;--h-btn-hero:54px}
+}
+.ro-text .kicker{font-size:var(--fs-kick)!important}
+.prose .fine,.prose .post-meta{font-size:var(--fs-small)!important;line-height:1.5!important}
+/* certifikáty na mobile: bez koláže, stačí tlačidlo Zobraziť osvedčenia */
+@media (max-width:760px){.ct-stack{display:none!important}}
+/* O mne: tretí riadok obrazovky nesmie orezať text po zväčšení písma */
+@media (min-width:1081px){.scr-omne{height:auto!important;grid-template-rows:auto auto auto!important}.scr-omne .rh{min-height:calc(var(--vh)*.56)}.ro{min-height:calc(270*var(--u))}.ro-text{padding-bottom:calc(30*var(--u))!important}}
+
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
 .rh,.hero,.sx,.cta,.hd{
