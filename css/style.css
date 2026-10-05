@@ -1380,3 +1380,4 @@ details[open] .plus::after{transform:rotate(0)}
 }
 @media (prefers-reduced-motion:reduce){.promo,.promo-ring{animation:none!important}}
 .ct{background:#fff}.ct-bg{opacity:.22}
+@media (min-width:1081px){.sx .sx-in{padding-bottom:calc(var(--vh)*.17)}}
