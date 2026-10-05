@@ -3,7 +3,7 @@
   --bg:#f6efe5; --bg-2:#efe5d6; --surface:#fffaf2; --surface-2:#f1e7d8;
   --cream:#24170f; --text:#4d3c2e; --muted:#7f6b58; --line:rgba(36,23,15,.14); --line-2:rgba(36,23,15,.26);
   --accent:#5f7150; --accent-d:#4e5f41; --lime:#5f7150; --paper:#fffaf2; --ink:#24170f; --ink-2:#5c4a3b;
-  --serif:"Playfair Display","Cormorant Garamond",Georgia,serif; --sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif; --hand:"Caveat","Segoe Script",cursive;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif; --sans:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif; --hand:"Caveat","Segoe Script",cursive;
   --gut:clamp(1.125rem,4.2vw,4rem); --head:5.25rem; --r:1.375rem; --ease:cubic-bezier(.2,.7,.2,1);
   color-scheme:light;
 }
@@ -1291,6 +1291,9 @@ details[open] .plus::after{transform:rotate(0)}
 .sv-fit li p::first-letter{text-transform:uppercase}
 .sv-fit li p::after{content:"."}
 .sv-price{scroll-margin-top:5.5rem}
+/* Fraunces: veľké nadpisy o niečo ľahšie, nech pôsobia vzdušne */
+.rhome .t1,.sv-hero .t1,.rh .t1,.rh .t2{font-weight:350}
+.h2,.h3{font-weight:380}
 
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
