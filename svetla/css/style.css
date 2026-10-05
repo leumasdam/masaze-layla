@@ -1314,6 +1314,15 @@ details[open] .plus::after{transform:rotate(0)}
   .dz-wall{opacity:.22}
   .dz::before{background:none!important}
 }
+/* záverečná výzva (väčšie obrazovky): fotka takmer priesvitná na bielom podklade, tmavé písmo */
+@media (min-width:761px){
+  .cta{background:#fff}
+  .cta-bg{opacity:.18}
+  .cta::before{background:none!important}
+  .cta .kicker,.cta .display,.cta-note{color:#24170f!important;opacity:1}
+  .cta .display em{color:#5f7150!important}
+  .cta .btn-ghost{background:rgba(255,255,255,.6)!important;color:#24170f!important;border-color:rgba(36,23,15,.25)!important}
+}
 
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
