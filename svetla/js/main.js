@@ -424,3 +424,23 @@ document.querySelectorAll(".ct").forEach(sec => {
   });
   dlg.addEventListener("keydown", e => { if (e.key === "ArrowRight") show(i + 1); if (e.key === "ArrowLeft") show(i - 1); });
 });
+
+/* Zľava: kopírovanie kódu + kód si web zapamätá a ukáže ho aj v rezervačnom okne. */
+(() => {
+  const KEY = "layla-kod";
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-copy]");
+    if (!b) return;
+    const t = b.dataset.copy;
+    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => { b.textContent = L("Skopírované", "Copied"); setTimeout(() => (b.textContent = L("Kopírovať", "Copy")), 1800); }).catch(() => {});
+  });
+  const done = document.getElementById("lead-done");
+  if (done) new MutationObserver(() => { if (!done.hidden) try { localStorage.setItem(KEY, done.querySelector(".lead-code span").textContent); } catch (e) {} }).observe(done, { attributes: true, attributeFilter: ["hidden"] });
+  let code = null; try { code = localStorage.getItem(KEY); } catch (e) {}
+  const dlg = document.getElementById("bk-dialog");
+  if (code && dlg) {
+    const tag = document.createElement("p"); tag.className = "bk-code";
+    tag.innerHTML = L("Váš kód na prvú masáž", "Your first-visit code") + ": <b>" + code + "</b> · " + L("napíšte ho do poznámky", "write it in the note");
+    dlg.insertBefore(tag, dlg.children[1] || null);
+  }
+})();

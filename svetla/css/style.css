@@ -1417,6 +1417,27 @@ main .link{font-size:12.5px!important;letter-spacing:.14em!important}
 @media (max-width:760px){.ct-stack{display:none!important}}
 /* O mne: tretí riadok obrazovky nesmie orezať text po zväčšení písma */
 @media (min-width:1081px){.scr-omne{height:auto!important;grid-template-rows:auto auto auto!important}.scr-omne .rh{min-height:calc(var(--vh)*.56)}.ro{min-height:calc(270*var(--u))}.ro-text{padding-bottom:calc(30*var(--u))!important}}
+.lead-code{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.lead-copybtn{font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:.6rem .9rem;border-radius:999px;border:1px solid currentColor;opacity:.75}
+.lead-copybtn:hover{opacity:1}
+.lead-steps{display:grid;gap:.35rem;margin:.4rem 0 1rem;padding-left:1.2rem;list-style:decimal;font-size:14px;line-height:1.5}
+.bk-code{margin:0 0 .6rem;padding:.55rem .9rem;border-radius:.7rem;background:rgba(122,101,85,.12);font-size:13px}
+.bk-code b{letter-spacing:.08em}
+
+/* ===== RYTMUS MEDZIER A ZAOBLENÍ (UI audit 5. 10.) ===== */
+:root{--sec:clamp(64px,7vw,104px);--r-card:18px;--r-panel:26px}
+main > .sec,main > .lead-sec,main > .fit,main > section.wrap{margin-top:var(--sec)!important}
+.sv-intro,.sv-price,.sv-fit,.sv-steps,.ct-page{padding-block:var(--sec)!important}
+.sv-fit + .sv-steps{padding-top:calc(var(--sec)*.75)!important}
+main > .studio.sec{margin-top:0!important;padding-block:var(--sec)!important}
+main > .cta,.panel .cta{margin-top:var(--sec)!important;padding-block:clamp(88px,9vw,128px)!important}
+.panel .cta{margin-top:0!important}
+main > .sec:last-of-type{margin-bottom:0}
+/* zaoblenia: karty 18 px, veľké panely 26 px */
+.rcard,.pc-card,.post-card,.sv-rate,.rv-card,.sv-fit li,.faq details,.place-card,.rk-card,.studio-grid figure,.sv-quote,.sv-facts{border-radius:var(--r-card)!important}
+.lead-card,.pc-side,.ct-dlg,.bk-dialog:not(:has(.bk-cal)){border-radius:var(--r-panel)!important}
+.studio-grid img,.rcard img{border-radius:0}
+.pc-wrap.pc{padding-bottom:0!important}
 
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
