@@ -1317,3 +1317,5 @@ details[open] .plus::after{transform:rotate(0)}
 /* krátky hero podstránok (Poradňa) – rovnaká výška ako na Službách */
 @media (min-width:1081px){.rh-short{height:calc(var(--vh)*475/941);min-height:calc(440*var(--u))}}
 @media (max-width:1080px){.rh-short{min-height:26rem}}
+/* zavreté rezervačné okno sa nikdy nezobrazí (pravidlo pre kalendár ho inak nechalo visieť pod pätičkou) */
+.bk-dialog:not([open]){display:none!important}
