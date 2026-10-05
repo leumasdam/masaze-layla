@@ -1315,35 +1315,22 @@ details[open] .plus::after{transform:rotate(0)}
   .dz::before{background:none!important}
 }
 
-/* úvod: svetlo sviečky pod kurzorom (len väčšie obrazovky) */
-.rhome .bg-reveal{display:none}
+/* úvod (väčšie obrazovky): vlnovka sa nakreslí a pri scrolle plynie; dýchací kruh nad „Viac pohody“ */
+.breath{display:none}
 @media (min-width:761px){
-  .rhome .bg-reveal{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;pointer-events:none;opacity:0;transition:opacity .8s var(--ease);
-    -webkit-mask-image:radial-gradient(circle var(--mr,17rem) at var(--mx,70%) var(--my,45%),#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
-    mask-image:radial-gradient(circle var(--mr,17rem) at var(--mx,70%) var(--my,45%),#000 0%,rgba(0,0,0,.55) 45%,transparent 100%)}
-  .rhome.lit .bg-reveal{opacity:.95}
+  .rhome .wave{display:block!important;stroke:#6b7b57;stroke-width:1.6;opacity:.75;stroke-dasharray:1;stroke-dashoffset:1;animation:waveDraw 2.6s .5s cubic-bezier(.6,.05,.3,1) forwards}
+  .rhome .wave path{stroke-dasharray:1 0}
+  @keyframes waveDraw{to{stroke-dashoffset:0}}
+  .breath{display:grid;place-items:center;position:absolute;right:calc(300*var(--u));bottom:calc(330*var(--u));width:calc(128*var(--u));height:calc(128*var(--u));color:#5f7150}
+  .breath>*{grid-area:1/1}
+  .breath-ring{width:100%;height:100%;border-radius:50%;border:1px solid rgba(95,113,80,.55);background:radial-gradient(circle,rgba(163,177,138,.22),rgba(163,177,138,0) 70%);animation:breathe 9s ease-in-out infinite}
+  .breath-dot{display:none}
+  .breath b{font:italic 400 calc(19*var(--u))/1 var(--serif);letter-spacing:.02em;opacity:0;animation:breathTxt 9s ease-in-out infinite}
+  .breath .breath-out{animation-delay:4.5s}
+  @keyframes breathe{0%,100%{transform:scale(.78);opacity:.55}50%{transform:scale(1);opacity:1}}
+  @keyframes breathTxt{0%{opacity:0}8%,42%{opacity:1}50%,100%{opacity:0}}
 }
-
-/* úvod: „Kde vás to ťaží?“ */
-.pk{display:none}
-@media (min-width:761px){
-  .rhome-side{display:none!important}
-  .pk{display:grid;gap:.9rem;position:absolute;right:calc(97*var(--u));bottom:calc(96*var(--u));width:calc(430*var(--u));padding:calc(26*var(--u)) calc(28*var(--u));border-radius:calc(24*var(--u));
-    background:rgba(255,253,249,.72);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(36,23,15,.08);box-shadow:0 1.6rem 3.4rem -1.6rem rgba(60,35,15,.35);color:#24170f;z-index:2}
-  .pk-q{font:italic 400 calc(30*var(--u))/1.1 var(--serif);color:#24170f}
-  .pk-chips{display:flex;flex-wrap:wrap;gap:calc(8*var(--u))}
-  .pk-chip{padding:calc(8*var(--u)) calc(15*var(--u));border-radius:999px;border:1px solid rgba(36,23,15,.18);font-size:calc(14.5*var(--u));color:#24170f;background:rgba(255,255,255,.5);transition:background .25s,color .25s,border-color .25s}
-  .pk-chip:hover{border-color:#5f7150}
-  .pk-chip.on{background:#5f7150;border-color:#5f7150;color:#fbf6ee}
-  .pk-pane{display:grid;gap:calc(6*var(--u));padding-top:calc(14*var(--u));border-top:1px solid rgba(36,23,15,.1);animation:pkIn .45s var(--ease)}
-  .pk-pane[hidden]{display:none}
-  @keyframes pkIn{from{opacity:0;transform:translateY(6px)}}
-  .pk-name{font:400 calc(22*var(--u))/1.2 var(--serif);color:#24170f}
-  .pk-pane p{font-size:calc(14.5*var(--u));line-height:1.45;color:#5c4a3b}
-  .pk-opts{display:flex;gap:calc(8*var(--u));margin-top:calc(8*var(--u))}
-  .pk-opts a{flex:1;display:grid;gap:2px;padding:calc(10*var(--u)) calc(14*var(--u));border-radius:calc(14*var(--u));border:1px solid rgba(36,23,15,.14);background:#fff;transition:background .25s,border-color .25s,transform .25s var(--ease)}
-  .pk-opts a:hover{background:#5f7150;border-color:#5f7150;transform:translateY(-2px)}
-  .pk-opts a:hover small,.pk-opts a:hover b{color:#fbf6ee}
-  .pk-opts small{font-size:calc(11.5*var(--u));letter-spacing:.16em;text-transform:uppercase;color:#7f6b58}
-  .pk-opts b{font:400 calc(24*var(--u))/1.05 var(--serif);color:#24170f;font-variant-numeric:lining-nums}
+@media (min-width:761px) and (prefers-reduced-motion:reduce){
+  .rhome .wave{animation:none;stroke-dashoffset:0}
+  .breath-ring,.breath b{animation:none}.breath .breath-in{opacity:1}
 }

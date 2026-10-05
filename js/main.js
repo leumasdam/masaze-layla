@@ -408,33 +408,15 @@ document.addEventListener("click", e => {
   }, 4000);
 })();
 
-/* Úvod: svetlo sviečky pod kurzorom – fotka sa okolo kurzora zobrazí naplno (len myš, väčšie obrazovky). */
+/* Úvod: vlnovka pri scrolle jemne „plynie“ (posun čiarkovania), len ak to systém dovoľuje. */
 (() => {
-  const hero = document.querySelector(".rhome");
-  if (!hero || !hero.querySelector(".bg-reveal") || !matchMedia("(min-width:761px) and (hover:hover)").matches) return;
-  let tx = .7, ty = .45, x = tx, y = ty, raf = 0;
-  const loop = () => {
-    x += (tx - x) * .12; y += (ty - y) * .12;
-    hero.style.setProperty("--mx", (x * 100).toFixed(2) + "%"); hero.style.setProperty("--my", (y * 100).toFixed(2) + "%");
-    raf = Math.abs(tx - x) + Math.abs(ty - y) > .0005 ? requestAnimationFrame(loop) : 0;
-  };
-  hero.addEventListener("pointermove", e => {
-    const r = hero.getBoundingClientRect();
-    tx = (e.clientX - r.left) / r.width; ty = (e.clientY - r.top) / r.height;
-    hero.classList.add("lit");
-    if (!raf) raf = requestAnimationFrame(loop);
-  });
-  hero.addEventListener("pointerleave", () => hero.classList.remove("lit"));
-})();
-
-/* Úvod: „Kde vás to ťaží?“ – prepínanie procedúr. */
-(() => {
-  const pk = document.querySelector(".pk");
-  if (!pk) return;
-  pk.addEventListener("click", e => {
-    const b = e.target.closest("[data-pk]");
-    if (!b) return;
-    pk.querySelectorAll("[data-pk]").forEach(c => { const on = c === b; c.classList.toggle("on", on); c.setAttribute("aria-pressed", on); });
-    pk.querySelectorAll("[data-pk-pane]").forEach(p => { p.hidden = p.dataset.pkPane !== b.dataset.pk; });
-  });
+  const w = document.querySelector(".rhome .wave");
+  if (!w || matchMedia("(prefers-reduced-motion:reduce)").matches || !matchMedia("(min-width:761px)").matches) return;
+  let drawn = false;
+  w.addEventListener("animationend", () => { drawn = true; w.style.animation = "none"; w.style.strokeDashoffset = "0"; w.style.strokeDasharray = ".86 .14"; });
+  let raf = 0;
+  addEventListener("scroll", () => {
+    if (!drawn || raf) return;
+    raf = requestAnimationFrame(() => { raf = 0; w.style.strokeDashoffset = (-(scrollY / innerHeight) * .6).toFixed(4); });
+  }, { passive: true });
 })();
