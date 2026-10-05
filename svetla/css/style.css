@@ -1314,6 +1314,9 @@ details[open] .plus::after{transform:rotate(0)}
   .dz-wall{opacity:.22}
   .dz::before{background:none!important}
 }
+/* krátky hero podstránok (Poradňa) – rovnaká výška ako na Službách */
+@media (min-width:1081px){.rh-short{height:calc(var(--vh)*475/941);min-height:calc(440*var(--u))}}
+@media (max-width:1080px){.rh-short{min-height:26rem}}
 
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
