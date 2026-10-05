@@ -1296,4 +1296,4 @@ details[open] .plus::after{transform:rotate(0)}
 @media (max-width:760px){.rhome .bg-ghost{display:none}}
 /* úvod: len pôvodná AI fotka, takmer priesvitná na tmavom podklade (čiara je priamo vo fotke) */
 .rhome{background:#17100b}
-.rhome .bg{opacity:.45}
+.rhome .bg{opacity:.3}
