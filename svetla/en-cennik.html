@@ -30,10 +30,26 @@ if(/(^|\.)masazelayla\.sk$/.test(location.hostname)){(function(w,d,s,l,i){w[l]=w
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Figtree:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="css/style.css?v=dbf00894">
+<link rel="stylesheet" href="css/style.css?v=cfa07e1e">
 <script>document.documentElement.classList.add("js")</script>
+<style>
+/* úvodná animácia loga – inline, aby sa ukázala hneď pri načítaní */
+.intro{position:fixed;inset:0;z-index:999;display:grid;place-items:center;background:#f6efe5;animation:introOut .75s 1.45s cubic-bezier(.76,0,.24,1) forwards;pointer-events:none}
+.intro-in{display:grid;justify-items:center;gap:1.1rem}
+.intro-logo{width:clamp(10rem,22vw,15rem);aspect-ratio:866/200;background:#24170f;-webkit-mask:url(img/brand/layla_logotype.svg) center/contain no-repeat;mask:url(img/brand/layla_logotype.svg) center/contain no-repeat;clip-path:inset(0 100% 0 0);animation:introLogo 1s .1s cubic-bezier(.65,0,.35,1) forwards}
+.intro-line{width:0;height:1px;background:#7a6555;animation:introLine .6s .75s cubic-bezier(.65,0,.35,1) forwards}
+.intro-sub{font:500 .62rem/1 Figtree,system-ui,sans-serif;letter-spacing:.42em;text-transform:uppercase;color:#7f6b58;opacity:0;animation:introFade .5s .95s ease forwards}
+@keyframes introLogo{to{clip-path:inset(0 0 0 0)}}
+@keyframes introLine{to{width:5.5rem}}
+@keyframes introFade{to{opacity:1}}
+@keyframes introOut{to{transform:translateY(-100%);visibility:hidden}}
+.no-intro .intro{display:none}
+@media (prefers-reduced-motion:reduce){.intro{display:none}}
+</style>
+<script>try{var n=performance.getEntriesByType("navigation")[0];if(sessionStorage.getItem("layla-intro")&&!(n&&n.type==="reload"))document.documentElement.classList.add("no-intro");sessionStorage.setItem("layla-intro","1")}catch(e){}</script>
 </head>
 <body>
+<div class="intro" aria-hidden="true"><div class="intro-in"><span class="intro-logo"></span><span class="intro-line"></span><span class="intro-sub">Masáže · Piešťany</span></div></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="hd" data-header>
@@ -259,6 +275,6 @@ if(/(^|\.)masazelayla\.sk$/.test(location.hostname)){(function(w,d,s,l,i){w[l]=w
 </dialog>
 
 <script type="application/json" id="bk-data">{"book":"https://booqme.app/en/rezervacia/masaze-layla","phone":"+421 904 098 246","phoneHref":"tel:+421904098246","cats":[{"key":"masaze","name":"Massages","items":[{"key":"masaze","name":"Full-body relaxation massage","opts":[{"min":30,"price":20,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31350"},{"min":60,"price":30,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31347"},{"min":90,"price":50,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31351"}]},{"key":"chrbat","name":"Back, neck & shoulder massage","opts":[{"min":30,"price":20,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31356"},{"min":60,"price":30,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31357"}]},{"key":"hlava","name":"Head & face massage","opts":[{"min":30,"price":20,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31358"},{"min":60,"price":30,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31359"}]},{"key":"chodidla","name":"Foot massage","opts":[{"min":30,"price":20,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31360"},{"min":60,"price":30,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31361"}]},{"key":"makke","name":"Soft tissue techniques","opts":[{"min":30,"price":20,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31362"},{"min":60,"price":30,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31363"}]}]},{"key":"bankovanie","name":"Cupping","items":[{"key":"bankovanie","name":"Cupping","opts":[{"min":30,"price":20,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31352"},{"min":45,"price":25,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31353"}]},{"key":"komplex","name":"Full recovery (massage + cupping)","opts":[{"min":60,"price":30,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31354"},{"min":90,"price":50,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31355"}]}]},{"key":"maderoterapia","name":"Wood therapy","items":[{"key":"maderoterapia","name":"Wood therapy with lymphatic techniques","opts":[{"min":60,"price":40,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31348"},{"min":90,"price":60,"url":"https://booqme.app/en/rezervacia/masaze-layla?service=31349"}]}]}]}</script>
-<script src="js/main.js?v=dbf00894" defer></script>
+<script src="js/main.js?v=cfa07e1e" defer></script>
 </body>
 </html>

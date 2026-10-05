@@ -1358,3 +1358,4 @@ details[open] .plus::after{transform:rotate(0)}
 @media (max-width:1080px){.ct-in{grid-template-columns:1fr}.ct-stack{max-width:40rem;width:100%;justify-self:center}}
 @media (max-width:760px){.ct{padding-block:3.5rem}.ct-list b{font-size:1.1rem}.ct-list .ico{width:3rem;height:3rem}}
 @media (max-width:1080px){.panel.ct{height:auto!important;min-height:0!important;max-height:none!important;overflow:hidden;display:block;padding-block:3.5rem 3rem}.ct-stack{margin-top:2rem}}
+.ct{background:#fbf7f1}.ct-bg{opacity:.5}
