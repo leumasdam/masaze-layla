@@ -1334,3 +1334,9 @@ details[open] .plus::after{transform:rotate(0)}
   .rhome .wave{animation:none;stroke-dashoffset:0}
   .breath-ring,.breath b{animation:none}.breath .breath-in{opacity:1}
 }
+
+/* Úvodná stránka (PC): jedna súvislá línia cez všetky slidy – vedie voľným priestorom, kreslí sa so scrollom */
+.flow{position:absolute;left:0;top:0;z-index:6;pointer-events:none;overflow:visible}
+.flow path{fill:none;stroke:#8a9a70;stroke-width:2;stroke-linecap:round}
+.flow circle{fill:#8a9a70;filter:drop-shadow(0 0 6px rgba(163,177,138,.9))}
+@media (min-width:1081px){[data-page="index"] .rhome .wave{display:none!important}}
