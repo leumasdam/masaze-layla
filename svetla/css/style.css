@@ -1315,32 +1315,6 @@ details[open] .plus::after{transform:rotate(0)}
   .dz::before{background:none!important}
 }
 
-/* úvod (väčšie obrazovky): vlnovka sa nakreslí a pri scrolle plynie; dýchací kruh nad „Viac pohody“ */
-.breath{display:none}
-@media (min-width:761px){
-  .rhome .wave{display:block!important;stroke:#6b7b57;stroke-width:1.6;opacity:.75;stroke-dasharray:1;stroke-dashoffset:1;animation:waveDraw 2.6s .5s cubic-bezier(.6,.05,.3,1) forwards}
-  .rhome .wave path{stroke-dasharray:1 0}
-  @keyframes waveDraw{to{stroke-dashoffset:0}}
-  .breath{display:grid;place-items:center;position:absolute;right:calc(300*var(--u));bottom:calc(330*var(--u));width:calc(128*var(--u));height:calc(128*var(--u));color:#5f7150}
-  .breath>*{grid-area:1/1}
-  .breath-ring{width:100%;height:100%;border-radius:50%;border:1px solid rgba(95,113,80,.55);background:radial-gradient(circle,rgba(163,177,138,.22),rgba(163,177,138,0) 70%);animation:breathe 9s ease-in-out infinite}
-  .breath-dot{display:none}
-  .breath b{font:italic 400 calc(19*var(--u))/1 var(--serif);letter-spacing:.02em;opacity:0;animation:breathTxt 9s ease-in-out infinite}
-  .breath .breath-out{animation-delay:4.5s}
-  @keyframes breathe{0%,100%{transform:scale(.78);opacity:.55}50%{transform:scale(1);opacity:1}}
-  @keyframes breathTxt{0%{opacity:0}8%,42%{opacity:1}50%,100%{opacity:0}}
-}
-@media (min-width:761px) and (prefers-reduced-motion:reduce){
-  .rhome .wave{animation:none;stroke-dashoffset:0}
-  .breath-ring,.breath b{animation:none}.breath .breath-in{opacity:1}
-}
-
-/* Úvodná stránka (PC): jedna súvislá línia cez všetky slidy – vedie voľným priestorom, kreslí sa so scrollom */
-.flow{position:absolute;left:0;top:0;z-index:6;pointer-events:none;overflow:visible}
-.flow path{fill:none;stroke:#8a9a70;stroke-width:2;stroke-linecap:round}
-.flow circle{fill:#8a9a70;filter:drop-shadow(0 0 6px rgba(163,177,138,.9))}
-@media (min-width:1081px){[data-page="index"] .rhome .wave{display:none!important}}
-
 /* --- svetlá verzia: ručné doladenie --- */
 /* fotky a ich prelivy ostávajú tmavé so svetlým textom */
 .rh,.hero,.sx,.cta,.hd{
