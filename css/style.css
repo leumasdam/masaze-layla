@@ -1493,3 +1493,5 @@ main > .sec:last-of-type{margin-bottom:0}
   .vo-how::before{width:100%}
   .vo-how-list{grid-template-columns:1fr;gap:3rem;max-width:30rem}
 }
+.rh .btn.vo-hero-btn{background:#f6efe5;color:#24170f;border-color:#f6efe5;min-height:3.75rem;padding:0 2.1rem;font-size:.95rem;box-shadow:0 1rem 2.4rem -1rem rgba(0,0,0,.6)}
+.rh .btn.vo-hero-btn:hover{background:#fff;color:#24170f}
