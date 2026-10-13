@@ -1311,7 +1311,7 @@ details[open] .plus::after{transform:rotate(0)}
 /* zľava + otázky (väčšie obrazovky): stena takmer priesvitná na bielom podklade, ako úvod */
 @media (min-width:761px){
   .dz{background:#fff}
-  .dz-wall{opacity:.22}
+  .dz-wall{opacity:.12}
   .dz::before{background:none!important}
 }
 /* krátky hero podstránok (Poradňa) – rovnaká výška ako na Službách */
