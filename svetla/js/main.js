@@ -494,3 +494,56 @@ document.querySelectorAll(".ct").forEach(sec => {
     }
   });
 })();
+
+/* Odznak zľavy na úvode: nikdy nesmie prekryť text. Hľadá voľné miesto vpravo od textu
+   (aj menší), a keď sa nikam nezmestí, skryje sa. Prepočíta sa pri zmene veľkosti okna. */
+(() => {
+  const promo = document.querySelector(".promo"), hero = promo && promo.closest(".rhome");
+  if (!promo || !hero) return;
+  const sels = [".rhome h1 .kicker", ".rhome h1 .t1", ".rhome .rh-lead", ".rhome .rh-cta", ".rhome .rh-rate", ".rhome-side", ".rhome-scroll", "[data-header] .hd-in"];
+  const boxes = () => {
+    const out = [];
+    for (const sel of sels) for (const el of document.querySelectorAll(sel)) {
+      if (!el.getClientRects().length || getComputedStyle(el).visibility === "hidden") continue;
+      const rng = document.createRange(); rng.selectNodeContents(el);
+      const rs = [...rng.getClientRects(), ...el.getClientRects()];
+      for (const r of rs) if (r.width > 2 && r.height > 2) out.push(r);
+    }
+    return out;
+  };
+  const place = () => {
+    promo.classList.remove("promo-off");
+    promo.style.left = promo.style.top = promo.style.right = promo.style.zoom = "";
+    if (getComputedStyle(promo).display === "none") return;
+    const H = hero.getBoundingClientRect(), base = promo.offsetWidth, ring = base * 0.08 + 14;
+    const obs = boxes();
+    const free = (x, y, s) => { // x,y = ľavý horný roh v rámci viewportu, s = veľkosť
+      const cx = x + s / 2, cy = y + s / 2, rr = s / 2 + ring;
+      if (x - ring < H.left + 8 || x + s + ring > H.right - 8 || y - ring < H.top + 8 || y + s + ring > Math.min(H.bottom, innerHeight) - 8) return false;
+      return obs.every(r => { const nx = Math.max(r.left, Math.min(cx, r.right)), ny = Math.max(r.top, Math.min(cy, r.bottom)); return (cx - nx) ** 2 + (cy - ny) ** 2 > rr * rr; });
+    };
+    const d = promo.getBoundingClientRect();
+    if (free(d.left, d.top, d.width)) return;
+    // kandidáti: pôvodná veľkosť a menšie, poradie podľa vzdialenosti od pôvodného miesta
+    for (const k of [1, .85, .72]) {
+      const s = base * k, cands = [];
+      for (let x = H.right - s - ring - 8; x >= H.left + 8; x -= 12)
+        for (let y = H.top + 8 + ring; y + s + ring <= Math.min(H.bottom, innerHeight) - 8; y += 12) cands.push([x, y]);
+      const dc = (p) => (p[0] + s / 2 - (d.left + d.width / 2)) ** 2 + (p[1] + s / 2 - (d.top + d.height / 2)) ** 2;
+      cands.sort((a, b) => dc(a) - dc(b));
+      const hit = cands.find(([x, y]) => free(x, y, s));
+      if (hit) {
+        promo.style.zoom = k === 1 ? "" : k;
+        promo.style.right = "auto";
+        promo.style.left = (hit[0] - H.left) / k + "px";
+        promo.style.top = (hit[1] - H.top) / k + "px";
+        return;
+      }
+    }
+    promo.classList.add("promo-off");
+  };
+  let t; const later = () => { clearTimeout(t); t = setTimeout(place, 120); };
+  addEventListener("resize", later);
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(place);
+  addEventListener("load", place);
+})();
